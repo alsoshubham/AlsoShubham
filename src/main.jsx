@@ -8,7 +8,7 @@ import Home from "./components/Home.jsx";
 import About from "./components/About/About.jsx";
 import './index.css'
 import Contact from "./components/ContactPage/Contact.jsx";
-import Projects from "./components/Projects/ProjectsSection.jsx";
+import Projects from "./components/Projects"
 
 const router =  createBrowserRouter([
     {
@@ -28,7 +28,7 @@ const router =  createBrowserRouter([
                 element:<Contact/>
             },
             {
-              path:"ProjectSection",
+              path:"Project",
               element:<Projects/>
           }
         ]

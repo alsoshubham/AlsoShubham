@@ -4,76 +4,59 @@
 // import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import ProjectCard from "./ProjectCard";
+// import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
 
 const projectsData = [
   {
     id: 1,
-    title: "PregEdu",
+    title: "Pawnsposes",
     description:
-      "Addressing the lack of accessible pregnancy education, PregEdu offers a platform with resources, a health check feature, and a supportive community.",
-    image:
-      "https://github.com/DiyaVj/preg-edu/assets/87236107/d64b0e25-6092-4fe4-a624-94ce01a7eb54",
+      " Pawnsposes, an e-learning platform with one simple goal: to teach and inspire the next generation to play chess. Whether you're just learning the basics or looking to sharpen your tactics, Pawnsposes is designed to help you grow as a player, step by step. ",
+    image: "",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/DiyaVj/preg-edu",
-    previewUrl: "https://preg-edu.vercel.app/",
+    gitUrl: "https://github.com/alsoshubham/Pawnsposes",
+    previewUrl: "",
   },
   {
     id: 2,
-    title: "XSentix",
+    title: "RightEducation",
     description:
-      "XSentix is a sentiment analyzer tool for analyzing sentiments of tweets/posts on the X (Formarly Twitter) platform.",
-    image:
-      "https://github.com/DiyaVj/Portfolio_DV/assets/87236107/3b64300d-ee89-4c8a-b86c-372b36fec13e",
-    tag: ["All", "ML"],
-    gitUrl: "https://github.com/DiyaVj/XSentix",
-    previewUrl: "https://xsentix.streamlit.app/",
+      "Right Education is an educational Institute with a vision to expand the brightness of better education",
+    image: "",
+    tag: ["All", "Web", "ML"],
+    gitUrl: "https://github.com/alsoshubham/RightEducation",
+    previewUrl: "",
   },
   {
     id: 3,
-    title: "Cinemilar",
+    title: "YogendraTraders",
     description:
-      "Cinemilar introduces a movie recommendation app using content-based filtering, suggesting the top 5 similar films based on metadata analysis.",
-    image:
-      "https://github.com/DiyaVj/Cinemilar/assets/87236107/b0fc5eb6-6545-4ab9-9673-1cafc5fbebf4",
-    tag: ["All", "ML"],
-    gitUrl: "https://github.com/DiyaVj/Cinemilar",
-    previewUrl: "https://diyavj-cinemilar-app-kh30et.streamlit.app/",
+      "Yogendra Traders is a textile clothings wholesale and retail store",
+    image: "",
+    tag: ["All", "Web", "ML"],
+    gitUrl: "https://github.com/alsoshubham/Yogendra-Traders",
+    previewUrl: "",
   },
   {
     id: 4,
-    title: "Menses - Period Poverty Tracker",
-    description:
-      "A web-based application, Menses serves as a tracker to help people in need locate donors nearby and connect with them.",
-    image:
-      "https://github.com/DiyaVj/Portfolio_DV/assets/87236107/73bce21c-22dd-4d0b-8d8c-4d65db82c4c0",
+    title: "AlmostLayers",
+    description: "A clone webApp of already existing store layers.shop",
+    image: "",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/DiyaVj/Menses-Period-Poverty-Tracker",
-    previewUrl: "https://diyavj.github.io/Menses-Period-Poverty-Tracker/",
+    gitUrl: "https://github.com/alsoshubham/AlmostLayers",
+    previewUrl: "",
   },
   {
     id: 5,
     title: "Solar System WebVR",
     description:
-      "Experience the immersive virtual reality of our solar system in your web browser with Solar System WebVR, using AFrame technology for an unparalleled journey.",
-    image:
-      "https://github.com/DiyaVj/Cinemilar/assets/87236107/c6551a05-f8a7-44de-941a-57a73ea9fdb6",
+      "Experience the immersive virtual reality of our solar system in your web browser with Solar System WebVR, using Framer technology for an unparalleled journey.",
+    image: "",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/DiyaVj/Solar-System-WebVR",
-    previewUrl: "https://diyavj.github.io/Solar-System-WebVR/",
+    gitUrl: "",
+    previewUrl: "",
   },
-  // {
-  //   id: 5,
-  //   title: "Ignite After Party - India Website",
-  //   description:
-  //     "Explore the Microsoft Ignite 2022 After Party by MLSA India on the dedicated website, Ignite After Party.",
-  //   image:
-  //     "https://github.com/DiyaVj/Cinemilar/assets/87236107/d3ccb31b-ddf4-4fe7-9f6c-641d1a4eb001",
-  //   tag: ["All", "Web"],
-  //   gitUrl: "https://github.com/DiyaVj/Ignite-India",
-  //   previewUrl: "https://diyavj.github.io/Ignite-India/",
-  // },
 ];
 
 const ProjectsSection = () => {
@@ -88,8 +71,8 @@ const ProjectsSection = () => {
     setVisibleProjects(3);
   };
 
-  const filteredProjects = projectsData.filter(
-    (project) => project.tag.includes(tag)
+  const filteredProjects = projectsData.filter((project) =>
+    project.tag.includes(tag)
   );
 
   const showMoreProjects = () => {
@@ -99,9 +82,13 @@ const ProjectsSection = () => {
   return (
     <section id="projects">
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-      Journey Through My Cosmic Projects
+        Journey Through My Cosmic Projects, here all the projects are build from scratch and with live users and active subscribers
       </h2>
-      <p className="text-center text-1xl text-[#ADB7BE]"> Explore more projects on my <a href="https://github.com/DiyaVj">GitHub</a></p>
+      <p className="text-center text-1xl text-[#ADB7BE]">
+        {" "}
+        Explore more projects on my{" "}
+        <a href="https://github.com/alsoshubham">GitHub</a>
+      </p>
       <div className="text-white flex flex-row justify-center item-center gap-2 py-6">
         <ProjectTag
           onClick={() => handleTagChange("All")}
@@ -119,26 +106,26 @@ const ProjectsSection = () => {
           isSelected={tag === "ML"}
         />
       </div>
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
+      {/* <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
         {filteredProjects
           .slice(0, visibleProjects)
-          .map((project, index) => (
-            <motion.li
-              key={project.id}
-              initial={{ y: 50, opacity: 0 }}
-              animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-            >
-              <ProjectCard
-                title={project.title}
-                description={project.description}
-                imgUrl={project.image}
-                gitUrl={project.gitUrl}
-                previewUrl={project.previewUrl}
-              />
-            </motion.li>
-          ))}
-      </ul>
+          // .map((project, index) => (
+          //   // <motion.li
+          //   //   key={project.id}
+          //   //   initial={{ y: 50, opacity: 0 }}
+          //   //   animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+          //   //   transition={{ duration: 0.3, delay: index * 0.1 }}
+          //   // >
+          //   //   <ProjectCard
+          //   //     title={project.title}
+          //   //     description={project.description}
+          //   //     imgUrl={project.image}
+          //   //     gitUrl={project.gitUrl}
+          //   //     previewUrl={project.previewUrl}
+          //   //   />
+          //   // </motion.li>
+          // ))}
+      </ul> */}
       {filteredProjects.length > visibleProjects && (
         <div className="text-center mt-8">
           <button

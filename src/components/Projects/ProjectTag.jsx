@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
- 
-const ProjectTag = ({ name, onClick, isSelected }) => {
+const ProjectTag = (name, onClick, isSelected) => {
     const buttonStyles = isSelected
       ? "text-white border border-purple-500"
       : "text-[#ADB7BE]";

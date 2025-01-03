@@ -1,7 +1,7 @@
-import About from "./About/About.jsx";
-import Projects from "./Projects/ProjectsSection.jsx";
-import Contact from "./ContactPage/Contact";
-import SocialSection from "./Socials/SocialSection.jsx";
+import About from "./About.jsx";
+import Projects from "./Projects.jsx";
+import Contact from "./Contact.jsx";
+import Socials from "./Socials.jsx";
 export default function Home() {
   return (
     <div>
@@ -14,7 +14,7 @@ export default function Home() {
       <About />
       <Projects />
       <Contact />
-      <SocialSection/>
+      <Socials/>
     </div>
   );
 }

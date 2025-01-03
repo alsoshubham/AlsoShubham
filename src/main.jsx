@@ -1,14 +1,13 @@
-// /* eslint-disable react/jsx-no-undef */
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout.jsx";
 import Home from "./components/Home.jsx";
-import About from "./components/About/About.jsx";
+import About from "./components/About.jsx";
 import "./index.css";
-import Contact from "./components/ContactPage/Contact.jsx";
-import Projects from "./components/Projects/ProjectsSection.jsx";
+import Contact from "./components/Contact.jsx";
+import Projects from "./components/Projects.jsx";
+import Socials from "./components/Socials.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,13 +23,21 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/Project",
+        path: "/projects",
         element: <Projects />,
       },
       {
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path: "*",
+        element: <div>Not Found</div>,
+      },
+      {
+        path: "/socials",
+        element: <Socials />,
+      }
     ],
   },
 ]);
@@ -40,5 +47,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </StrictMode>
 );
-
-export default createRoot;

@@ -69,7 +69,7 @@ export default function Footer() {
           <span className="text-sm text-gray-500 sm:text-center">
             © 2024
             <a href="" className="hover:underline">
-              AlsoShubham.co
+              alsoShubham.co
             </a>
             . All Rights Reserved.
           </span>

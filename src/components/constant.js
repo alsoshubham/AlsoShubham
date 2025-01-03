@@ -36,7 +36,7 @@ const projectsData = [
       image: "",
       tag: ["All", "Web"],
       gitUrl: "https://github.com/alsoshubham/AlmostLayers",
-      previewUrl: "",
+      previewUrl: "www.layers.shop",
     },
     {
       id: 5,

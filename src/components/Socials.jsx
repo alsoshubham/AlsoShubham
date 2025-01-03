@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import XIcon from "../assets/images/x.png";
 import GitHubIcon from "../assets/images/github.png";
 import LinkedInIcon from "../assets/images/linkedin.png";
-import GmailIcon from "../assets/images/gmail.jpg";
+import GmailIcon from "../assets/images/gmail.png";
 
 const Socials = () => {
   return (

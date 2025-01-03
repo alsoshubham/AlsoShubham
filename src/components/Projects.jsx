@@ -57,6 +57,7 @@ const ProjectsSection = () => {
   };
 
   return (
+    <div>
     <section id="projects">
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
         Journey Through My Tragedic Valuable Projects, here all the projects are
@@ -82,8 +83,9 @@ const ProjectsSection = () => {
           </button>
         </div>
       )}
-      <ProjectCard />
     </section>
+    <ProjectCard />
+    </div>
   );
 };
 

@@ -6,10 +6,10 @@ export default function Home() {
   return (
     <div>
       <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-        molestiae quibusdam, neque eveniet quos quidem molestias inventore!
-        Commodi modi, magni consequuntur porro ea dignissimos odio mollitia
-        praesentium officiis error iste?
+      Hi, I am Shubham, <br />
+      Full Stack Developer, UX Strategist, and UI Designer. I also do a bit of Research and Marketing <br />
+      Building Startups, and redesigning existing products. <br />
+      Crafting digital experiences with clean code and creative solutions
       </p>
       <About />
       <Projects />

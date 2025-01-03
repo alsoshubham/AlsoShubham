@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faDiscord, faTwitter, faGithub, faDribbble } from '@fortawesome/free-brands-svg-icons';
+import { FaFacebook, FaDiscord, FaTwitter, FaGithub, FaDribbble } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
 const resources = [
@@ -9,21 +8,13 @@ const resources = [
 ];
 
 const followUs = [
-  { name: "Github", href: "https://github.com/alsoshubham", icon: faGithub },
+  { name: "Github", href: "https://github.com/alsoshubham", icon: FaGithub },
   { name: "Discord", to: "/" },
 ];
 
 const legal = [
   { name: "Privacy Policy", to: "#" },
   { name: "Terms & Conditions", to: "#" },
-];
-
-const socialLinks = [
-  { icon: faFacebook, label: "Facebook page" },
-  { icon: faDiscord, label: "Discord community" },
-  { icon: faTwitter, label: "Twitter page" },
-  { icon: faGithub, label: "GitHub account" },
-  { icon: faDribbble, label: "Dribbble account" },
 ];
 
 
@@ -83,12 +74,21 @@ export default function Footer() {
             . All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
-            {socialLinks.map((link, index) => (
-              <Link key={index} to="#" className="text-gray-500 hover:text-gray-900">
-                <FontAwesomeIcon icon={link.icon} className="w-4 h-4" />
-                <span className="sr-only">{link.label}</span>
-              </Link>
-            ))}
+            <Link to="#" className="text-gray-500 hover:text-gray-900">
+              <FaFacebook className="w-4 h-4" />
+            </Link>
+            <Link to="#" className="text-gray-500 hover:text-gray-900">
+              <FaDiscord className="w-4 h-4" />
+            </Link>
+            <Link to="#" className="text-gray-500 hover:text-gray-900">
+              <FaTwitter className="w-4 h-4" />
+            </Link>
+            <Link to="#" className="text-gray-500 hover:text-gray-900">
+              <FaGithub className="w-4 h-4" />
+            </Link>
+            <Link to="#" className="text-gray-500 hover:text-gray-900">
+              <FaDribbble className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </div>

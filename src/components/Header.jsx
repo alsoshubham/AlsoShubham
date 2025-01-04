@@ -93,7 +93,6 @@ function Header () {
       <div className="header flex justify-evenly px-6 py-4">
         <Title/>
         <div className="flex">
-          <nav>
             <ul className="flex justify-around gap-5">
               <li>
                 <Link to="/about">About</Link>
@@ -105,12 +104,11 @@ function Header () {
                 <Link to="/contact">Contact</Link>
               </li>
               <li>
-                <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-6 bg-gradient-to-r from-purple-400 to-purple-700 hover:bg-gradient-to-r hover:from-slate-800 hover:to-slate-700 text-white hover:text-purple-500 ">
+                <button className="px-6 py-3 w-full sm:w-fit border-1 solid rounded-full mr-6 bg-gradient-to-r from-purple-400 to-purple-700 hover:bg-gradient-to-r hover:from-slate-800 hover:to-slate-700 text-white hover:text-purple-500 ">
                   <a href="https://docs.google.com/document/d/1pSmGMPZFB_rkDTf8ZuQyA0rndie3So0G8RZ-uu0Dlv0/edit?usp=sharing">Resume</a>
                 </button>
               </li>
             </ul>
-          </nav>
         </div>
       </div>
     </div>

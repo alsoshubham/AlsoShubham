@@ -56,10 +56,11 @@ const ProjectsSection = () => {
     ));
   };
 
+
   return (
     <div>
     <section id="projects">
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
+      <h2 className="text-center text-4xl font-bold text-gray-500 mt-4 mb-8 md:mb-12">
         Journey Through My Tragedic Valuable Projects, here all the projects are
         build from scratch and with focusing on live users and active
         subscribers
@@ -84,7 +85,19 @@ const ProjectsSection = () => {
         </div>
       )}
     </section>
-    <ProjectCard />
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {filteredProjects.slice(0, visibleProjects).map((project) => (
+      <ProjectCard
+        key={project.id}
+        title={project.title}
+        tag={project.tag}
+        imgUrl={project.imgUrl}
+        gitUrl={project.gitUrl}
+        description={project.description}
+        previewUrl={project.previewUrl}
+      />
+    ))}
+    </div>
     </div>
   );
 };

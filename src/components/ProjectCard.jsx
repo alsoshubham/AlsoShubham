@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types';
+import { FaGithub } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 
 const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
   return (
@@ -13,11 +15,11 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
           <Link
             to={gitUrl}
             className="h-14 w-14 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
-          ></Link>
+          ><FaGithub /></Link>
           <Link
             to={previewUrl}
             className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
-          ></Link>
+          ><FaEye /></Link>
         </div>
       </div>
       {/* Project details */}
@@ -28,12 +30,4 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
     </div>
   );
 };
-ProjectCard.propTypes = {
-  imgUrl: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  gitUrl: PropTypes.string.isRequired,
-  previewUrl: PropTypes.string.isRequired,
-};
-
 export default ProjectCard;

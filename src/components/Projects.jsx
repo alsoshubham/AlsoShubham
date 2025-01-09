@@ -56,7 +56,6 @@ const ProjectsSection = () => {
     ));
   };
 
-console.log(filteredProjects)
   return (
     <div>
     <section id="projects">
@@ -91,7 +90,7 @@ console.log(filteredProjects)
         key={project.id}
         title={project.title}
         tag={project.tag}
-        imgUrl={project.imgUrl}
+        imgUrl={project.image}
         gitUrl={project.gitUrl}
         description={project.description}
         previewUrl={project.previewUrl}

@@ -13,7 +13,7 @@ const projectsData = [
       id:2,
       title: "DineWithZomato",
       description:" DineWithZomato for enhanced user experience, allowing table booking, menu ordering, and initial payment through the app.",
-      image: "",
+      image: "https://raw.githubusercontent.com/alsoshubham/AlsoShubham/main/zomato.jpeg",
       tag: ["Web"],
       gitUrl: "https://github.com/alsoshubham/DineWithZomato",
       previewUrl: "",

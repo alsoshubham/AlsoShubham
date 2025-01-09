@@ -56,7 +56,7 @@ const ProjectsSection = () => {
     ));
   };
 
-
+console.log(filteredProjects)
   return (
     <div>
     <section id="projects">
@@ -86,7 +86,7 @@ const ProjectsSection = () => {
       )}
     </section>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {filteredProjects.slice(0, visibleProjects).map((project) => (
+    {filteredProjects.map((project) => (
       <ProjectCard
         key={project.id}
         title={project.title}

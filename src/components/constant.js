@@ -4,7 +4,7 @@ const projectsData = [
       title: "Pawnsposes",
       description:
         " Pawnsposes, an e-learning platform with one simple goal: to teach and inspire the next generation to play chess. Whether you're just learning the basics or looking to sharpen your tactics, Pawnsposes is designed to help you grow as a player, step by step. ",
-      image: "file:///C:/Users/DELL/Downloads/Screenshot_3-1-2025_21416_pawnsposes.com.jpeg",
+      image: "",
       tag: ["All", "Web"],
       gitUrl: "https://github.com/alsoshubham/Pawnsposes",
       previewUrl: "",

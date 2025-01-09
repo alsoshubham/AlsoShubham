@@ -25,7 +25,7 @@ const ProjectsSection = () => {
 
   const ProjectTag = ({ name, onClick, isSelected }) => {
     const buttonStyles = isSelected
-      ? "text-white border border-purple-500"
+      ? "text-[#171717] border border-purple-500"
       : "text-[#ADB7BE]";
 
     return (

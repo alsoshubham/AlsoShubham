@@ -4,7 +4,7 @@ const projectsData = [
       title: "Pawnsposes",
       description:
         " Pawnsposes, an e-learning chess platform designed to help you grow as a player, step by step. ",
-      image: "https://raw.githubusercontent.com/alsoshubham/AlsoShubham/main/Pawnsposes.jpeg",
+      image: "",
       tag: ["All", "Web"],
       gitUrl: "https://github.com/alsoshubham/Pawnsposes",
       previewUrl: "",

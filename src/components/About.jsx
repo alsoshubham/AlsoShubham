@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { FaCheck } from "react-icons/fa6";
 export default function About() {
   const navigate = useNavigate();
   return (
@@ -23,20 +24,20 @@ export default function About() {
             <br />
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div className="flex items-center">
-                <span className="text-green-500 mr-2">✔</span>
+                <span className="text-green-500 mr-2"><FaCheck /></span>
                 <span>Web Development</span>
               </div>
               <div className="flex items-center">
-                <span className="text-green-500 mr-2">✔</span>
+                <span className="text-green-500 mr-2"><FaCheck /></span>
                 <span>UI/UX Design</span>
               </div>
               <div className="flex items-center">
-                <span className="text-green-500 mr-2">✔</span>
+                <span className="text-green-500 mr-2"><FaCheck /></span>
                 <span>Mobile Apps</span>
               </div>
               <div className="flex items-center">
-                <span className="text-green-500 mr-2">✔</span>
-                <span>Cloud Solutions</span>
+                <span className="text-green-500 mr-2"><FaCheck /></span>
+                <span>Strategic Designs</span>
               </div>
             </div>
             <div className="grid grid-col-2 gap-4 text-gray-400 mb-8">

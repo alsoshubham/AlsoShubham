@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import PropTypes from "prop-types";
 import ProjectCard from "./ProjectCard";
@@ -75,7 +74,7 @@ const ProjectsSection = () => {
   return (
     <div>
       <section id="projects">
-        <h2 className="text-center text-4xl font-bold text-gray-500 mt-4 mb-8 md:mb-12">
+        <h2 className="text-center text-4xl font-bold text-gray-500 mt-4 mb-8 md:mb-10">
           Journey Through My Tragedic Valuable Projects, here all the projects
           are build from scratch and with focusing on live users and active
           subscribers
@@ -100,7 +99,7 @@ const ProjectsSection = () => {
           </div>
         )}
       </section>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-12">
         {filteredProjects.map((project) => (
           <ProjectCard
             key={project.id}

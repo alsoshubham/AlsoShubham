@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 export default function About() {
+  const navigate = useNavigate();
   return (
-    <div className="py-16 bg-white">
+    <div className="py-20 bg-white">
       <div className="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
+        <h1 className=" heading flex justify-center pb-28 text-3xl md:text-4xl mb-4 font-bold">About Me</h1>
         <div className="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
           <div className="md:w-5/12 lg:w-5/12">
             <img
@@ -15,13 +18,34 @@ export default function About() {
               React development is carried out by passionate developers
             </h2>
             <p className="mt-6 text-gray-600">
-            I'm a passionate Full Stack Developer, crafting digital solutions. My journey in tech started with a curiosity about how things work on the web, and it has evolved into a professional career building robust and scalable applications.
+            I am a passionate Full Stack Developer, crafting digital solutions. My journey in tech started with a curiosity about how things work on the web, and it has evolved into a professional career building robust and scalable applications.
             </p>
-            <p className="mt-4 text-gray-600">
-              Nobis minus voluptatibus pariatur dignissimos libero quaerat iure
-              expedita at? Asperiores nemo possimus nesciunt dicta veniam
-              aspernatur quam mollitia.
-            </p>
+            <br />
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="flex items-center">
+                <span className="text-green-500 mr-2">✔</span>
+                <span>Web Development</span>
+              </div>
+              <div className="flex items-center">
+                <span className="text-green-500 mr-2">✔</span>
+                <span>UI/UX Design</span>
+              </div>
+              <div className="flex items-center">
+                <span className="text-green-500 mr-2">✔</span>
+                <span>Mobile Apps</span>
+              </div>
+              <div className="flex items-center">
+                <span className="text-green-500 mr-2">✔</span>
+                <span>Cloud Solutions</span>
+              </div>
+            </div>
+            <div className="grid grid-col-2 gap-4 text-gray-400 mb-8">
+              <div ><p>workwithalsoshubham@gmail.com</p></div>
+              <div ><p>New Delhi</p></div>
+              <div ><p>Available for freelance</p></div>
+            </div>
+            <button className="px-6 py-3 w-full sm:w-fit border-1 solid rounded-md mr-6 bg-gradient-to-r from-purple-400 to-purple-700 hover:bg-gradient-to-r hover:from-slate-800 hover:to-slate-700 text-white hover:text-purple-500 "
+          onClick={() => navigate('/contact')}>Get In Touch</button>
           </div>
         </div>
       </div>

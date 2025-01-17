@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { TiSocialLinkedin, TiSocialTwitter, TiSocialInstagram } from "react-icons/ti";
-
+import { sendEmail } from '../service/email';
 const ContactInfo = ({ icon, text }) => (
   <div className="flex items-center mt-4 text-gray-600">
     {icon}
@@ -62,6 +62,13 @@ TextAreaField.propTypes = {
 };
 
 export default function Contact() {
+  const submitForm = (e) => {
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget) //e.currenttarget html return krta hain, FormData inbuilt class hoti hain, jo html ke data ko array/obj mein
+    console.log(formData.get("name")); //
+    const data = {to_name:"shubham", from_name:formData.get("name"), email: formData.get("email"), message: formData.get("message")}
+    sendEmail(data)
+  }
   return (
     <div className="relative flex items-top justify-center min-h-[700px] sm:items-center sm:pt-0">
       <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
@@ -172,7 +179,7 @@ export default function Contact() {
             </div>
 
             {/* Contact Form Section */}
-            <form className="p-6 flex flex-col justify-center">
+            <form onSubmit={submitForm} className="p-6 flex flex-col justify-center">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <InputField
                   label="Full Name"
@@ -201,7 +208,7 @@ export default function Contact() {
                 name="message"
                 id="message"
                 placeholder="Explain your enquiry"
-                minLength={200}
+                maxLength={200}
               />
               <button
                 type="submit"

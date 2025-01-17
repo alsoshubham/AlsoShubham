@@ -111,7 +111,7 @@ import { FiMail } from "react-icons/fi";
 function footer() {
   return (
     <div className="footer px-28">
-      <div className="container grid grid-cols-4 py-16">
+      <div className="container grid grid-col-2 gap-2 md:grid-cols-4 py-16">
         <div>
           <div>
             <h2>alsoShubham</h2>

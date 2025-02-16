@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center px-28">
       <div className="px-6">
-        <p className="flex justify-center items-center text-3xl font-semibold text-center text-gray-900">
+        <p className="text-center text-4xl font-bold text-gray-500 mt-4 mb-8 md:mb-10 flex justify-center items-center">
           Hi, I am Shubham, <br />
           Full Stack Developer, <br /> UX Strategist and UI Designer. <br />
           <br />

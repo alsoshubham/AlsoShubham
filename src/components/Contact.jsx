@@ -1,225 +1,215 @@
-import PropTypes from 'prop-types';
-import { TiSocialLinkedin, TiSocialTwitter, TiSocialInstagram } from "react-icons/ti";
-import { sendEmail } from '../service/email';
-const ContactInfo = ({ icon, text }) => (
-  <div className="flex items-center mt-4 text-gray-600">
-    {icon}
-    <div className="ml-4 text-md tracking-wide font-semibold w-40">
-      {text}
-    </div>
-  </div>
-);
+"use client"
 
-ContactInfo.propTypes = {
-  icon: PropTypes.node.isRequired,
-  text: PropTypes.string.isRequired,
-};
+import { useState, useRef } from "react"
+// import { Button } from "@/components/ui/button"
+// import { Input } from "@/components/ui/input"
+// import { Textarea } from "@/components/ui/textarea"
+// import { Label } from "@/components/ui/label"
+// import { toast } from "@/components/ui/use-toast"
+import { FiMapPin,  } from "react-icons/fi";
+import { CiPhone, CiMail } from "react-icons/ci";
+import { FaInstagram, FaLinkedinIn , FaTwitter , FaGithub } from "react-icons/fa";
+import { IoIosSend } from "react-icons/io";
+import emailjs from "@emailjs/browser"
 
-const InputField = ({ label, type, name, id, placeholder }) => (
-  <div className="flex flex-col mt-2">
-    <label htmlFor={id} className="text-gray-600 font-semibold mb-2">
-      {label}
-    </label>
-    <input
-      type={type}
-      name={name}
-      id={id}
-      placeholder={placeholder}
-      className="w-100 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
-    />
-  </div>
-);
+export default function ContactSection() {
+  const formRef = useRef(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-InputField.propTypes = {
-  label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-};
-
-const TextAreaField = ({ label, name, id, placeholder, minLength }) => (
-  <div className="flex flex-col mt-2">
-    <label htmlFor={id} className="text-gray-600 font-semibold mb-2">
-      {label}
-    </label>
-    <textarea
-      name={name}
-      id={id}
-      placeholder={placeholder}
-      minLength={minLength}
-      className="w-100 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
-    ></textarea>
-  </div>
-);
-
-TextAreaField.propTypes = {
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  minLength: PropTypes.number.isRequired,
-};
-
-export default function Contact() {
-  const submitForm = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const formData = new FormData(e.currentTarget) //e.currenttarget html return krta hain, FormData inbuilt class hoti hain, jo html ke data ko array/obj mein
-    console.log(formData.get("name")); //
-    const data = {to_name:"shubham", from_name:formData.get("name"), email: formData.get("email"), message: formData.get("message")}
-    sendEmail(data)
+
+    if (!formRef.current) return
+
+    try {
+      setIsSubmitting(true)
+
+      // Replace with your EmailJS service ID, template ID, and public key
+      await emailjs.sendForm("service_qaq4udg", "template_4mfkxh7", formRef.current, "KtINPv02hLSyOQSGe")
+
+      // toast({
+      //   title: "Message sent successfully!",
+      //   description: "I'll get back to you as soon as possible.",
+      //   variant: "default",
+      // })
+
+      formRef.current.reset()
+    } catch (error) {
+      console.error(error)
+      // toast({
+      //   title: "Something went wrong!",
+      //   description: "Please try again later.",
+      //   variant: "destructive",
+      // })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
+
   return (
-    <div className="relative flex items-top justify-center min-h-[700px] sm:items-center sm:pt-0">
-      <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
-        <div className="mt-8 overflow-hidden">
-          <h1 className="text-3xl sm:text-4xl text-gray-800 font-extrabold tracking-tight text-center">
-            Get in touch
-          </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            {/* Contact Information Section */}
-            <div className="p-6 bg-gray-100 sm:rounded-lg">
-              <p className="text-lg sm:text-xl font-medium text-gray-600 mt-2">
-                Contact Information
-              </p>
-              <ContactInfo
-                icon={
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
-                    className="w-8 h-8 text-gray-500"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                }
-                text="New Delhi, India"
-              />
-              <ContactInfo
-                icon={
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
-                    className="w-8 h-8 text-gray-500"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                }
-                text="+91 1234567890"
-              />
-              <ContactInfo
-                icon={
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
-                    className="w-8 h-8 text-gray-500"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                }
-                text="XYZ@example.com"
-              />
-              <div className="mt-8">
-                <p className="text-lg sm:text-xl font-medium text-gray-600">
-                  Follow Me
-                </p>
-                <div className="flex mt-4 space-x-4">
-                  <a
-                    href="https://instagram.com/alsoshubham.here"
-                    className="text-gray-500 hover:text-pink-400"
-                  >
-                    <TiSocialInstagram size={30} />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/alsoshubham/"
-                    className="text-gray-500 hover:text-blue-400"
-                  >
-                    <TiSocialLinkedin size={30} />
-                  </a>
-                  <a
-                    href="https://twitter.com/alsoshubham_"
-                    className="text-gray-500 hover:text-blue-300"
-                  >
-                    <TiSocialTwitter size={30} />
-                  </a>
+    <section className="relative w-full py-20 overflow-hidden bg-gradient-to-br from-gray-900 to-black">
+      {/* Decorative elements */}
+      <div className="absolute top-20 left-10 w-80 h-80 rounded-full bg-gradient-to-r from-red-500 to-orange-500 opacity-20 blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 opacity-20 blur-3xl"></div>
+
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Get in touch</h2>
+          <p className="text-gray-400 max-w-xl mx-auto">
+            Have a project in mind or just want to say hello? Feel free to reach out!
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* Left side - Contact Information */}
+          <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 flex flex-col justify-between h-full">
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-8">Contact Information</h3>
+
+              <div className="space-y-6 text-left">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
+                    <FiMapPin className="text-purple-400" />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 text-sm">Location</p>
+                    <p className="text-white font-medium">New Delhi, India</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+                    <CiPhone className="text-blue-400" />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 text-sm">Phone</p>
+                    <p className="text-white font-medium">+91 1234567890</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-pink-500/20 flex items-center justify-center">
+                    <CiMail className="text-pink-400" />
+                  </div>
+                  <div>
+                    <p className="text-gray-400 text-sm">Email</p>
+                    <p className="text-white font-medium">your.email@example.com</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Contact Form Section */}
-            <form onSubmit={submitForm} className="p-6 flex flex-col justify-center">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <InputField
-                  label="Full Name"
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Full Name"
-                />
-                <InputField
-                  label="Email"
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Email"
-                />
+            <div className="mt-12">
+              <h4 className="text-xl font-semibold text-white mb-4">Follow Me</h4>
+              <div className="flex gap-4">
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                >
+                  <FaInstagram className="w-5 h-5 text-white" />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                >
+                  <FaLinkedinIn className="w-5 h-5 text-white" />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                >
+                  <FaTwitter className="w-5 h-5 text-white" />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                >
+                  <FaGithub className="w-5 h-5 text-white" />
+                </a>
               </div>
-              <InputField
-                label="Subject"
-                type="text"
-                name="subject"
-                id="subject"
-                placeholder="Reason for contacting"
-              />
-              <TextAreaField
-                label="Message"
-                name="message"
-                id="message"
-                placeholder="Explain your enquiry"
-                maxLength={200}
-              />
+            </div>
+          </div>
+
+          {/* Right side - Contact Form */}
+          <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 gap-6">
+                <div className="space-y-2 text-left">
+                  <label htmlFor="name" className="text-white">
+                    Full Name
+                  </label>
+                  <input
+                    id="name"
+                    name="user_name"
+                    placeholder="Your name"
+                    required
+                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 block w-full px-4 py-3 rounded-lg"
+                  />
+                </div>
+
+                <div className="space-y-2 text-left">
+                  <label htmlFor="email" className="text-white">
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    name="user_email"
+                    type="email"
+                    placeholder="your.email@example.com"
+                    required
+                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 block w-full px-4 py-3 rounded-lg"
+                  />
+                </div>
+
+                <div className="space-y-2 text-left">
+                  <label htmlFor="subject" className="text-white">
+                    Subject
+                  </label>
+                  <input
+                    id="subject"
+                    name="subject"
+                    placeholder="What is this regarding?"
+                    required
+                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 block w-full px-4 py-3 rounded-lg"
+                  />
+                </div>
+
+                <div className="space-y-2 text-left">
+                  <label htmlFor="message" className="text-white">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Tell me about your project or inquiry..."
+                    required
+                    className="min-h-[150px] bg-white/5 border-white/10 text-white placeholder:text-gray-500  block w-full px-4 py-3 rounded-lg"
+                  />
+                </div>
+              </div>
+
               <button
                 type="submit"
-                className="md:w-32 bg-red-400 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-orange-600 transition ease-in-out duration-300"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white py-3 rounded-lg transition-all"
               >
-                Submit
+                {isSubmitting ? (
+                  <span className="flex items-center gap-2">
+                    <div className="w-4 h-4 border-2 border-white/50 border-t-white rounded-full animate-spin"></div>
+                    Sending...
+                  </span>
+                ) : (
+                  <span className="flex items-center justify-center gap-2">
+                    <IoIosSend className="w-4 h-4" />
+                    Send Message
+                  </span>
+                )}
               </button>
             </form>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </section>
+  )
 }
+

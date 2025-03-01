@@ -72,27 +72,27 @@ const ProjectsSection = () => {
   };
 
   return (
-    <div>
+    <div className="max-w-screen-xl mx-auto px-4 md:px-0 my-10 md:my-20">
       <section id="projects">
-        <h2 className="text-center text-4xl font-bold text-gray-500 mt-4 mb-8 md:mb-10">
+        <h2 className="text-center text-4xl font-bold text-[#ffffff] mt-4 mb-8 md:mb-10">
           Journey Through My Tragedic Valuable Projects, here all the projects
           are build from scratch and with focusing on live users and active
           subscribers
         </h2>
-        <p className="text-center text-1xl text-[#ADB7BE]">
+        <p className="text-center text-1xl text-[#ffffff]">
           {" "}
           Explore more projects on my{" "}
           <a href="https://github.com/alsoshubham">GitHub</a>
         </p>
         {/* Applied filters on my projects */}
-        <div className="text-white flex flex-row justify-center item-center gap-2 py-6">
+        <div className="text-white bg-transparent flex flex-row justify-center item-center gap-2 py-6">
           {renderProjectTags()}
         </div>
         {filteredProjects.length > visibleProjects && (
           <div className="text-center mt-8">
             <button
               onClick={showMoreProjects}
-              className="px-6 py-3 w-full sm:w-fit rounded-full mr-6 bg-gradient-to-r from-purple-400 to-purple-700 hover:bg-gradient-to-r hover:from-slate-800 hover:to-slate-700 text-white hover:text-purple-500 "
+              className="px-6 py-3 w-full sm:w-fit rounded-full mr-6 bg-gradient-to-r from-purple-400 to-purple-700 hover:bg-gradient-to-r hover:from-slate-800 hover:to-slate-400 text-white hover:text-purple-500 "
             >
               Show More Projects
             </button>

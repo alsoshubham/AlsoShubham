@@ -3,8 +3,8 @@ import { FaCheck } from "react-icons/fa6";
 export default function About() {
   const navigate = useNavigate();
   return (
-    <div className="py-20 bg-white">
-      <div className="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
+    <section className="max-w-screen-xl mx-auto px-4 md:px-0 my-10 md:my-20">
+      <div className="text-white">
         <h1 className=" heading flex justify-center pb-28 text-3xl md:text-4xl mb-4 font-bold">About Me</h1>
         <div className="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
           <div className="md:w-5/12 lg:w-5/12">
@@ -15,14 +15,14 @@ export default function About() {
             />
           </div>
           <div className="md:w-7/12 lg:w-6/12">
-            <h2 className="text-2xl text-gray-900 font-bold md:text-4xl">
+            <h2 className="text-2xl text-[#ffffff] font-bold md:text-4xl">
               React development is carried out by passionate developers
             </h2>
-            <p className="mt-6 text-gray-600">
+            <p className="mt-6 text-[#ffffff] font-normal">
             I am a passionate Full Stack Developer, crafting digital solutions. My journey in tech started with a curiosity about how things work on the web, and it has evolved into a professional career building robust and scalable applications.
             </p>
             <br />
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-2 gap-4 mb-8 font-normal text-[#ffffff]">
               <div className="flex items-center">
                 <span className="text-green-500 mr-2"><FaCheck /></span>
                 <span>Web Development</span>
@@ -40,7 +40,7 @@ export default function About() {
                 <span>Strategic Designs</span>
               </div>
             </div>
-            <div className="grid grid-col-2 gap-4 text-gray-400 mb-8">
+            <div className="grid grid-col-2 gap-4 text-[#ffffff] mb-8">
               <div ><p>workwithalsoshubham@gmail.com</p></div>
               <div ><p>New Delhi</p></div>
               <div ><p>Available for freelance</p></div>
@@ -50,6 +50,6 @@ export default function About() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -93,52 +93,42 @@
 //     </footer>
 //   );
 // }
-import {
-  TiSocialLinkedin,
-  TiSocialTwitter,
-  TiSocialInstagram,
-} from "react-icons/ti";
+import { FaInstagram, FaLinkedinIn , FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import {
-  FaFacebook,
-  FaDiscord,
-  FaTwitter,
-  FaGithub,
-  FaDribbble,
-} from "react-icons/fa";
 import { TfiLocationPin } from "react-icons/tfi";
 import { FiMail } from "react-icons/fi";
+
 function footer() {
   return (
-    <div className="footer px-28">
+    <div className="footer px-16">
       <div className="container grid grid-col-2 gap-2 md:grid-cols-4 py-16">
         <div>
-          <div>
-            <h2>alsoShubham</h2>
-            <p>
-              Crafting digital experiences with clean code and creative
-              solutions. Available for freelance opportunities.
-            </p>
-            <div className="flex mt-4 space-x-4">
-              <a
-                href="https://instagram.com/alsoshubham.here"
-                className="text-gray-500 hover:text-pink-400"
-              >
-                <TiSocialInstagram size={30} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/alsoshubham/"
-                className="text-gray-500 hover:text-blue-400"
-              >
-                <TiSocialLinkedin size={30} />
-              </a>
-              <a
-                href="https://twitter.com/alsoshubham_"
-                className="text-gray-500 hover:text-blue-300"
-              >
-                <TiSocialTwitter size={30} />
-              </a>
-            </div>
+          <h2 className="text-base lg:textxl font-bold tracking-wide mb-2">
+            <em>AlsoShubham</em>
+          </h2>
+          <p>
+            Crafting digital experiences with clean code and creative solutions.
+            Available for freelance opportunities.
+          </p>
+          <div className="flex mt-4 space-x-4">
+            <a
+              href="https://instagram.com/alsoshubham.here"
+              className="text-gray-500 hover:text-pink-400"
+            >
+              <FaInstagram size={30} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/alsoshubham/"
+              className="text-gray-500 hover:text-blue-400"
+            >
+              <FaLinkedinIn size={30} />
+            </a>
+            <a
+              href="https://twitter.com/alsoshubham_"
+              className="text-gray-500 hover:text-blue-300"
+            >
+              <FaTwitter size={30} />
+            </a>
           </div>
         </div>
         <div>
@@ -178,42 +168,35 @@ function footer() {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="text-left">
           <h2 className="font-semibold font-sans">Contact Info</h2>
-          <ul className="gap-4">
-            <li>
-              <p><i><TfiLocationPin /></i><span>New Delhi, Delhi, India</span></p>
+          <ul className="">
+            <li className="flex items-center gap-2">
+              <TfiLocationPin />
+              New Delhi, Delhi, India
             </li>
-            <li>
-              <p><i><FiMail /></i><span>workwithalsoshubham@gmail.com</span></p>
+            <li className="flex items-center gap-2">
+              <FiMail />
+              workwithalsoshubham@gmail.com
             </li>
           </ul>
         </div>
       </div>
       <hr />
       <div className="sm:flex sm:items-center sm:justify-between pt-6">
-        <span className="text-sm text-gray-500 sm:text-center">
-          © 2024
+        <span className="text-sm sm:text-center text-white">
+          © 2024 {" "}
           <a href="" className="hover:underline">
             alsoShubham.co
           </a>
           . All Rights Reserved.
         </span>
         <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
-          <Link to="#" className="text-gray-500 hover:text-gray-900">
-            <FaFacebook className="w-4 h-4" />
-          </Link>
-          <Link to="#" className="text-gray-500 hover:text-gray-900">
-            <FaDiscord className="w-4 h-4" />
-          </Link>
-          <Link to="#" className="text-gray-500 hover:text-gray-900">
+          <Link to="https://x.com/alsoshubham_" className="text-white hover:text-blue-500">
             <FaTwitter className="w-4 h-4" />
           </Link>
-          <Link to="#" className="text-gray-500 hover:text-gray-900">
-            <FaGithub className="w-4 h-4" />
-          </Link>
-          <Link to="#" className="text-gray-500 hover:text-gray-900">
-            <FaDribbble className="w-4 h-4" />
+          <Link to="https://www.instagram.com/alsoshubham.here/" className="text-white hover:text-pink-400">
+            <FaInstagram className="w-4 h-4" />
           </Link>
         </div>
       </div>

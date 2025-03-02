@@ -135,19 +135,19 @@ function footer() {
           <h2 className="font-semibold font-sans">Quick Links</h2>
           <ul className="gap-4">
             <li>
-              <Link to="/About">About</Link>
+              <Link to="/About"><u>About</u></Link>
             </li>
             <li>
-              <Link to="/Services">Services</Link>
+              <Link to="/Services"><u>Services</u></Link>
             </li>
             <li>
-              <Link to="/Projects">Projects</Link>
+              <Link to="/Projects"><u>Projects</u></Link>
             </li>
             <li>
-              <Link to="/Blog">Blog</Link>
+              <Link to="/Blog"><u>Blog</u></Link>
             </li>
             <li>
-              <Link to="/Contact">Contact</Link>
+              <Link to="/Contact"><u>Contact</u></Link>
             </li>
           </ul>
         </div>
@@ -155,16 +155,16 @@ function footer() {
           <h2 className="font-semibold font-sans">Services</h2>
           <ul className="gap-4">
             <li>
-              <Link to="/contact">Web Development</Link>
+              <Link to="/contact"><u>Web Development</u></Link>
             </li>
             <li>
-              <Link to="/contact">Mobile Development</Link>
+              <Link to="/contact"><u>Mobile Development</u></Link>
             </li>
             <li>
-              <Link to="/contact">UI/UX Design</Link>
+              <Link to="/contact"><u>UI/UX Design</u></Link>
             </li>
             <li>
-              <Link to="/contact">UX Strategies</Link>
+              <Link to="/contact"><u>UX Strategies</u></Link>
             </li>
           </ul>
         </div>

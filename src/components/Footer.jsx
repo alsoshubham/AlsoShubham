@@ -131,7 +131,7 @@ function footer() {
             </a>
           </div>
         </div>
-        <div>
+        <div className="text-left">
           <h2 className="font-semibold font-sans">Quick Links</h2>
           <ul className="gap-4">
             <li>
@@ -151,7 +151,7 @@ function footer() {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="text-left">
           <h2 className="font-semibold font-sans">Services</h2>
           <ul className="gap-4">
             <li>

@@ -40,10 +40,10 @@ export default function About() {
                 <span>Strategic Designs</span>
               </div>
             </div>
-            <div className="grid grid-col-2 gap-4 text-[#ffffff] mb-8">
+            <div className="grid grid-col-2 gap-4 text-[#ffffff] mb-8 text-start">
               <div ><p>workwithalsoshubham@gmail.com</p></div>
               <div ><p>New Delhi</p></div>
-              <div ><p>Available for freelance</p></div>
+              <div ><p>Contact for availability for freelance</p></div>
             </div>
             <button className="px-6 py-3 w-full sm:w-fit border-1 solid rounded-md mr-6 bg-gradient-to-r from-purple-400 to-purple-700 hover:bg-gradient-to-r hover:from-slate-800 hover:to-slate-700 text-white hover:text-purple-500 "
           onClick={() => navigate('/contact')}>Get In Touch</button>

@@ -64,7 +64,7 @@ export default function ContactSection() {
           {/* Left side - Contact Information */}
           <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 flex flex-col justify-between h-full">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-8">Contact Information</h3>
+              <h3 className="text-2xl text-start font-bold text-white mb-8">Contact Information</h3>
 
               <div className="space-y-6 text-left">
                 <div className="flex items-center gap-4">
@@ -100,28 +100,28 @@ export default function ContactSection() {
             </div>
 
             <div className="mt-12">
-              <h4 className="text-xl font-semibold text-white mb-4">Follow Me</h4>
+              <h4 className="text-xl text-start font-semibold text-white mb-4">Follow Me</h4>
               <div className="flex gap-4">
                 <a
-                  href="#"
+                  href="https://instagram.com/alsoshubham.here"
                   className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
                 >
                   <FaInstagram className="w-5 h-5 text-white" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/alsoshubham/"
                   className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
                 >
                   <FaLinkedinIn className="w-5 h-5 text-white" />
                 </a>
                 <a
-                  href="#"
+                  href="https://x.com/alsoshubham_"
                   className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
                 >
                   <FaTwitter className="w-5 h-5 text-white" />
                 </a>
                 <a
-                  href="#"
+                  href="https://github.com/alsoshubham"
                   className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
                 >
                   <FaGithub className="w-5 h-5 text-white" />

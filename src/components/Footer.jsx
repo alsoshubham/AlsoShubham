@@ -103,10 +103,10 @@ function footer() {
     <div className="footer px-16">
       <div className="container grid grid-col-2 gap-2 md:grid-cols-4 py-16">
         <div>
-          <h2 className="text-base lg:textxl font-bold tracking-wide mb-2">
+          <h2 className="text-base text-start lg:textxl font-bold tracking-wide mb-2">
             <em>AlsoShubham</em>
           </h2>
-          <p>
+          <p className="text-start">
             Crafting digital experiences with clean code and creative solutions.
             Available for freelance opportunities.
           </p>

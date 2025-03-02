@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Link } from "react-router-dom";
-import XIcon from "../assets/images/x.png";
-import GitHubIcon from "../assets/images/github.png";
-import LinkedInIcon from "../assets/images/linkedin.png";
-import GmailIcon from "../assets/images/gmail.png";
+// import XIcon from "./images/x.png";
+// import GitHubIcon from "./images/github.png";
+// import LinkedInIcon from "./images/linkedin.png";
+// import GmailIcon from "./images/gmail.png";
 
 const Socials = () => {
   return (
@@ -35,28 +35,28 @@ const Socials = () => {
           <div className="socials flex flex-row gap-4 items-center justify-center">
             <Link to="https://github.com/alsoshubham">
               <img
-                src={GitHubIcon}
+                src="./images/github.png"
                 className="w-10 h-10 hover:opacity-80 cursor-pointer"
                 alt="Github Icon"
               />
             </Link>
             <Link to="https://www.linkedin.com/in/alsoshubham/">
               <img
-                src={LinkedInIcon}
+                src="./images/linkedin.png"
                 className="w-10 h-10 hover:opacity-80 cursor-pointer"
                 alt="LinkedIn Icon"
               />
             </Link>
             <Link to="https://x.com/alsoshubham_">
               <img
-                src={XIcon}
+                src="./images/x.png"
                 className="w-10 h-10 hover:opacity-80 cursor-pointer"
                 alt="X Icon"
               />
             </Link>
             <Link to="mailto:workwithalsoshubham@gmail.com">
               <img
-                src={GmailIcon}
+                src="./images/gmail.png"
                 className="w-10 h-10 hover:opacity-80 cursor-pointer"
                 alt="Gmail Icon"
               />

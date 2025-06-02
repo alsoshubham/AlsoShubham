@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
   const navigate = useNavigate();
-  
+
   return (
     <section className="max-w-screen-xl mx-auto px-4 md:px-0 my-10 md:my-20">
       <p className="text-center text-4xl font-bold text-[#ffffff] mt-4 mb-8 md:mb-10 flex justify-center items-center">
-        Hi, I am Shubham, <br />
+        Hello, I am <br /> <h1 className="font-serif">Shubham</h1><br />
         Full Stack Developer, <br /> UX Strategist and UI Designer. <br />
         <br />
         Crafting digital experiences with clean code <br /> and creative

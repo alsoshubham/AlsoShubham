@@ -1,199 +1,214 @@
-// import { Link } from "react-router-dom";
-// import PropTypes from 'prop-types';
-
-// const resources = [
-//   { name: "Home", to: "/" },
-//   { name: "About", to: "/about" },
-// ];
-
-// const followUs = [
-//   { name: "Github", href: "https://github.com/alsoshubham", icon: FaGithub },
-//   { name: "Discord", to: "/" },
-// ];
-
-// const legal = [
-//   { name: "Privacy Policy", to: "#" },
-//   { name: "Terms & Conditions", to: "#" },
-// ];
-
-// FooterSection.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   items: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       name: PropTypes.string.isRequired,
-//       to: PropTypes.string,
-//       href: PropTypes.string,
-//     })
-//   ).isRequired,
-//   isExternal: PropTypes.bool,
-// };
-
-// function FooterSection({ title, items, isExternal }) {
-//   return (
-//     <div>
-//       <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">{title}</h2>
-//       <ul className="text-gray-500 font-medium">
-//         {items.map((item, index) => (
-//           <li key={index} className="mb-4">
-//             {isExternal ? (
-//               <a href={item.href} className="hover:underline" target="_blank" rel="noreferrer">
-//                 {item.name}
-//               </a>
-//             ) : (
-//               <Link to={item.to} className="hover:underline">
-//                 {item.name}
-//               </Link>
-//             )}
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// }
-
-// export default function Footer() {
-//   return (
-//     <footer className="bg-white border-y">
-//       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-//         <div className="md:flex md:justify-between">
-//           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-//             <FooterSection title="Resources" items={resources} />
-//             <FooterSection title="Follow us" items={followUs} isExternal />
-//             <FooterSection title="Legal" items={legal} />
-//           </div>
-//         </div>
-//         <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
-//         <div className="sm:flex sm:items-center sm:justify-between">
-//           <span className="text-sm text-gray-500 sm:text-center">
-//             © 2024
-//             <a href="" className="hover:underline">
-//               alsoShubham.co
-//             </a>
-//             . All Rights Reserved.
-//           </span>
-//           <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
-//             <Link to="#" className="text-gray-500 hover:text-gray-900">
-//               <FaFacebook className="w-4 h-4" />
-//             </Link>
-//             <Link to="#" className="text-gray-500 hover:text-gray-900">
-//               <FaDiscord className="w-4 h-4" />
-//             </Link>
-//             <Link to="#" className="text-gray-500 hover:text-gray-900">
-//               <FaTwitter className="w-4 h-4" />
-//             </Link>
-//             <Link to="#" className="text-gray-500 hover:text-gray-900">
-//               <FaGithub className="w-4 h-4" />
-//             </Link>
-//             <Link to="#" className="text-gray-500 hover:text-gray-900">
-//               <FaDribbble className="w-4 h-4" />
-//             </Link>
-//           </div>
-//         </div>
-//       </div>
-//     </footer>
-//   );
-// }
-import { FaInstagram, FaLinkedinIn , FaTwitter } from "react-icons/fa";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import { TfiLocationPin } from "react-icons/tfi";
-import { FiMail } from "react-icons/fi";
+import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { SiLinkedin, SiMedium } from "react-icons/si";
 
-function footer() {
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+
+  const quickLinks = [
+    { name: "About Us", href: "/about" },
+    { name: "Our Services", href: "/services" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact Us", href: "/contact" },
+  ];
+
+  const handleCallClick = () => {
+    window.open("tel:+918826291451");
+  };
+
+  const handleWhatsAppClick = () => {
+    const message = encodeURIComponent(
+      "Hi! I need help with scaling my early stage startup. Can you assist me?"
+    );
+    window.open(`https://wa.me/918826291451?text=${message}`, "_blank");
+  };
+
+  const handleSubscribe = () => {
+    if (!email) {
+      toast.error("Please enter your email address to subscribe.");
+      return;
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    toast.success(
+      "Thank you for subscribing to our newsletter. You'll receive weekly tax tips and updates."
+    );
+
+    // Here you would typically send the email to your backend
+    console.log("Newsletter subscription:", email);
+    setEmail("");
+  };
+
   return (
-    <div className="footer px-16">
-      <div className="container grid grid-col-2 gap-2 md:grid-cols-4 py-16">
-        <div>
-          <h2 className="text-base text-start lg:textxl font-bold tracking-wide mb-2">
-            <em>AlsoShubham</em>
-          </h2>
-          <p className="text-start">
-            Crafting digital experiences with clean code and creative solutions.
-            Available for freelance opportunities.
-          </p>
-          <div className="flex mt-4 space-x-4">
-            <a
-              href="https://instagram.com/alsoshubham.here"
-              className="text-gray-500 hover:text-pink-400"
+    <footer className="z-10 bg-white bg-opacity-10 backdrop-blur-lg rounded-lg text-center shadow-lg relative">
+      {/* Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 justify-between">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div className="space-y-6">
+            <div className="flex items-center space-x-2">
+              <span className="text-xl font-bold">alsoshubham</span>
+            </div>
+            <p className="text-gray-300 text-sm leading-relaxed"></p>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-3 text-sm">
+                <Phone className="w-4 h-4 text-blue-400" />
+                <button
+                  onClick={handleCallClick}
+                  className="hover:text-white transition-colors"
+                >
+                  +91 8826291451
+                </button>
+              </div>
+              <div className="flex items-center space-x-3 text-sm">
+                <Mail className="w-4 h-4 text-blue-400" />
+                <a
+                  href="mailto:hello@alsoshubham.com"
+                  className="hover:text-white transition-colors"
+                >
+                  hello@alsoshubham.com
+                </a>
+              </div>
+              <div className="flex items-center space-x-3 text-sm">
+                <MapPin className="w-4 h-4 text-blue-400" />
+                <span>Dwarka, New Delhi</span>
+              </div>
+            </div>
+            <div className="flex space-x-4">
+              <Link
+                to="#"
+                className="text-gray-400 hover:text-white"
+                aria-label="Facebook"
+              >
+                <FaFacebook size={24} alt="Facebook" />
+              </Link>
+              <Link
+                to="#"
+                className="text-gray-400 hover:text-white"
+                aria-label="Twitter"
+              >
+                <FaTwitter size={24} alt="Twitter" />
+              </Link>
+              <Link
+                to="#"
+                className="text-gray-400 hover:text-white"
+                aria-label="Instagram"
+              >
+                <FaInstagram size={24} alt="Instagram" />
+              </Link>
+              <Link
+                to="https://medium.com/@alsoshubham"
+                className="text-gray-400 hover:text-white"
+                aria-label="Medium"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SiMedium size={24} alt="Medium" />
+              </Link>
+              <Link
+                to="https://www.linkedin.com/in/alsoshubham"
+                className="text-gray-400 hover:text-white"
+                aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SiLinkedin size={24} alt="LinkedIn" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
+            <ul className="space-y-3">
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={link.href}
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Newsletter & Contact */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">Stay Updated</h3>
+            <p className="text-gray-300 text-sm mb-4"></p>
+            <div className="flex">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="px-3 py-2 rounded-l-md bg-gray-800 text-white focus:outline-none w-full sm:w-64"
+              />
+              <button
+                onClick={handleSubscribe}
+                className="px-6 py-3 w-full sm:w-fit border border-purple-500 rounded-md mr-6 bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-700 hover:to-purple-900 text-white font-medium shadow-lg transition-colors duration-200"
+              >
+                Subscribe
+              </button>
+            </div>
+            <button
+              onClick={handleWhatsAppClick}
+              className="mt-6 flex items-center space-x-2 text-green-400 hover:text-green-500 transition-colors text-sm"
             >
-              <FaInstagram size={30} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/alsoshubham/"
-              className="text-gray-500 hover:text-blue-400"
-            >
-              <FaLinkedinIn size={30} />
-            </a>
-            <a
-              href="https://twitter.com/alsoshubham_"
-              className="text-gray-500 hover:text-blue-300"
-            >
-              <FaTwitter size={30} />
-            </a>
+              <MessageCircle className="w-4 h-4" />
+              <span>Chat on WhatsApp</span>
+            </button>
           </div>
         </div>
-        <div className="text-left">
-          <h2 className="font-semibold font-sans">Quick Links</h2>
-          <ul className="gap-4">
-            <li>
-              <Link to="/About"><u>About</u></Link>
-            </li>
-            <li>
-              <Link to="/Services"><u>Services</u></Link>
-            </li>
-            <li>
-              <Link to="/Projects"><u>Projects</u></Link>
-            </li>
-            <li>
-              <Link to="/Blog"><u>Blog</u></Link>
-            </li>
-            <li>
-              <Link to="/Contact"><u>Contact</u></Link>
-            </li>
-          </ul>
-        </div>
-        <div className="text-left">
-          <h2 className="font-semibold font-sans">Services</h2>
-          <ul className="gap-4">
-            <li>
-              <Link to="/contact"><u>Web Development</u></Link>
-            </li>
-            <li>
-              <Link to="/contact"><u>Mobile Development</u></Link>
-            </li>
-            <li>
-              <Link to="/contact"><u>UI/UX Design</u></Link>
-            </li>
-            <li>
-              <Link to="/contact"><u>UX Strategies</u></Link>
-            </li>
-          </ul>
-        </div>
-        <div className="text-left">
-          <h2 className="font-semibold font-sans">Contact Info</h2>
-          <ul className="">
-            <li className="flex items-center gap-2">
-              <TfiLocationPin />
-              New Delhi, Delhi, India
-            </li>
-            <li className="flex items-center gap-2">
-              <FiMail />
-              workwithalsoshubham@gmail.com
-            </li>
-          </ul>
+      </div>
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-800">
+        <div className="text-center md:text-left md:flex md:items-center md:justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <p className="text-gray-400 text-sm">
+            © {currentYear} alsoshubham. All rights reserved.
+          </p>
         </div>
       </div>
-      <hr />
-      <div className="sm:flex sm:items-center sm:justify-between pt-6">
-        <span className="text-sm sm:text-center text-white">
-          © 2024 {" "}
-          <a href="" className="hover:underline">
-            alsoShubham.co
-          </a>
-          . All Rights Reserved.
-        </span>
-      </div>
-    </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      {/* Tawk.to Live Chat Widget */}
+      <script type="text/javascript">
+        {`
+          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+          (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/your_property_id/1hxxxxxxx'; // Replace with your Tawk.to property ID
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+          })();
+        `}
+      </script>
+    </footer>
   );
-}
+};
 
-export default footer;
+export default Footer;

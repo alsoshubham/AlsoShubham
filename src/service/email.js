@@ -1,16 +1,18 @@
 import emailjs from '@emailjs/browser';
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 export const sendEmail = (data) => {
 
     emailjs
       .sendForm('service_qaq4udg', 'template_4mfkxh7', data, {
-        publicKey: 'KtINPv02hLSyOQSGe',
+        publicKey: EMAILJS_PUBLIC_KEY,
       })
       .then(
         () => {
-          console.log('SUCCESS!');
+          window.alert('Email sent successfully!');
         },
         (error) => {
-          console.log('FAILED...', error);
+          window.alert('Failed to send email. Please try again later.');
+          console.error('FAILED...', error);
         },
       );
   };

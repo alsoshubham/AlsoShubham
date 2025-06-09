@@ -8,6 +8,11 @@ export async function getRepos() {
       )
       .then((res) => res.data);
 
+    // Ensure result.items is an array before mapping
+    if (!Array.isArray(result.items)) {
+      return [];
+    }
+
     result = result.items.map((item) => ({
       id: item.id,
       title: item.name,
@@ -19,7 +24,7 @@ export async function getRepos() {
     }));
 
     return result;
-  } catch (error) {
-    return error;
+  } catch {
+    return [];
   }
 }

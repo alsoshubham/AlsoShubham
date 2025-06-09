@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import PropTypes from "prop-types";
 import ProjectCard from "./ProjectCard";
@@ -5,8 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getRepos } from "../service/main.service";
 
 const ProjectsSection = () => {
-  const [visibleProjects, setVisibleProjects] = useState(3);
-  const [selectedTag, setSelectedTag] = useState("All");
+  const [selectedTag] = useState("All");
   const {
     isPending,
     error,
@@ -22,21 +22,12 @@ const ProjectsSection = () => {
 
   if (error) return "An error has occurred: " + error.message;
 
-  // Handle tag change and reset visible projects
-  const handleTagChange = (newTag) => {
-    setSelectedTag(newTag);
-    setVisibleProjects(3);
-  };
-
   // Filter projects based on selected tag
-  const filteredProjects = projects.filter((project) =>
-    selectedTag === "All" ? true : project.tag.includes(selectedTag)
-  );
-
-  // Show more projects by increasing the visible count
-  const showMoreProjects = () => {
-    setVisibleProjects((prevCount) => prevCount + 3);
-  };
+  const filteredProjects = Array.isArray(projects)
+    ? projects.filter((project) =>
+        selectedTag === "All" ? true : project.tag.includes(selectedTag)
+      )
+    : [];
 
   const ProjectTag = ({ name, onClick, isSelected }) => {
     const buttonStyles = isSelected
@@ -58,61 +49,57 @@ const ProjectsSection = () => {
     isSelected: PropTypes.bool.isRequired,
   };
 
-  // Render project tags
-  const renderProjectTags = () => {
-    const tags = ["All", "Web", "ML"];
-    return tags.map((tag) => (
-      <ProjectTag
-        key={tag}
-        onClick={() => handleTagChange(tag)}
-        name={tag}
-        isSelected={selectedTag === tag}
-      />
-    ));
+  // Marquee component for horizontally scrolling project cards
+  const Marquee = ({ children }) => (
+    <div className="relative w-full overflow-x-hidden py-4 group">
+      <div className="flex whitespace-nowrap animate-marquee group-hover:[animation-play-state:paused]">
+        {children}
+        {children}
+      </div>
+    </div>
+  );
+  Marquee.propTypes = {
+    children: PropTypes.node.isRequired,
   };
 
   return (
-    <div className="max-w-screen-xl mx-auto px-4 md:px-0 my-10 md:my-20">
-      <section id="projects">
-        <h2 className="text-center text-4xl font-bold text-[#ffffff] mt-4 mb-8 md:mb-10">
-          Journey Through My Tragedic Valuable Projects, here all the projects
-          are build from scratch and with focusing on live users and active
-          subscribers
-        </h2>
-        <p className="text-center text-1xl text-[#ffffff]">
-          {" "}
-          Explore more projects on my{" "}
-          <a href="https://github.com/alsoshubham">GitHub</a>
-        </p>
-        {/* Applied filters on my projects */}
-        <div className="text-white bg-transparent flex flex-row justify-center item-center gap-2 py-6">
-          {renderProjectTags()}
+    <section className="projects-section py-16">
+      <div className="container mx-auto px-4 md:px-0 text-white text-center mb-12 flex flex-col items-center gap-4">
+        <div className="max-w-5xl mx-auto text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4">Projects & Case Studies</h2>
+          <p className="text-lg text-white">
+            Real products. Real users. Real impact. Here's a selection of
+            products I've helped shape, scale, or ship — with deep involvement
+            from discovery to delivery.
+          </p>
         </div>
-        {filteredProjects.length > visibleProjects && (
-          <div className="text-center mt-8">
-            <button
-              onClick={showMoreProjects}
-              className="px-6 py-3 w-full sm:w-fit rounded-full mr-6 bg-gradient-to-r from-purple-400 to-purple-700 hover:bg-gradient-to-r hover:from-slate-800 hover:to-slate-400 text-white hover:text-purple-500 "
-            >
-              Show More Projects
-            </button>
-          </div>
-        )}
-      </section>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-12">
-        {filteredProjects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            title={project.title}
-            tag={project.tag}
-            imgUrl={project.image}
-            gitUrl={project.gitUrl}
-            description={project.description}
-            previewUrl={project.previewUrl}
-          />
-        ))}
+        <Marquee>
+          {filteredProjects.map((project) => (
+            <div key={project.id} className="inline-block mx-4 w-80 align-top">
+              <ProjectCard
+                title={project.title}
+                tag={project.tag}
+                imgUrl={project.image}
+                gitUrl={project.gitUrl}
+                description={project.description}
+                previewUrl={project.previewUrl}
+              />
+            </div>
+          ))}
+        </Marquee>
+        <button>
+          <a
+            href="https://medium.com/@alsoshubham"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 w-full sm:w-fit border border-purple-500 rounded-md mr-6 bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-700 hover:to-purple-900 text-white font-medium shadow-lg transition-colors duration-200"
+            onClick={() => window.open("https://medium.com/@alsoshubham", "_blank")}
+          >
+            Read More on Medium 
+          </a>
+        </button>
       </div>
-    </div>
+    </section>
   );
 };
 

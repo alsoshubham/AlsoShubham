@@ -1,62 +1,50 @@
-"use client"
-
-import { useState, useRef } from "react"
-// import { Button } from "@/components/ui/button"
-// import { Input } from "@/components/ui/input"
-// import { Textarea } from "@/components/ui/textarea"
-// import { Label } from "@/components/ui/label"
-// import { toast } from "@/components/ui/use-toast"
-import { FiMapPin,  } from "react-icons/fi";
-import { CiPhone, CiMail } from "react-icons/ci";
-import { FaInstagram, FaLinkedinIn , FaTwitter , FaGithub } from "react-icons/fa";
+import { useState, useRef } from "react";
+import { FiMapPin } from "react-icons/fi";
+import { CiMail } from "react-icons/ci";
+import { FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { IoIosSend } from "react-icons/io";
-import emailjs from "@emailjs/browser"
+
+import emailjs from "@emailjs/browser";
 
 export default function ContactSection() {
-  const formRef = useRef(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const formRef = useRef(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (!formRef.current) return
+    if (!formRef.current) return;
 
     try {
-      setIsSubmitting(true)
+      setIsSubmitting(true);
 
       // Replace with your EmailJS service ID, template ID, and public key
-      await emailjs.sendForm("service_qaq4udg", "template_4mfkxh7", formRef.current, "KtINPv02hLSyOQSGe")
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
-      // toast({
-      //   title: "Message sent successfully!",
-      //   description: "I'll get back to you as soon as possible.",
-      //   variant: "default",
-      // })
-
-      formRef.current.reset()
+      formRef.current.reset();
     } catch (error) {
-      console.error(error)
-      // toast({
-      //   title: "Something went wrong!",
-      //   description: "Please try again later.",
-      //   variant: "destructive",
-      // })
+      window.alert("Failed to send email. Please try again later.");
+      console.error("FAILED...", error);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
-    <section className="relative w-full py-20 overflow-hidden bg-gradient-to-br from-gray-900 to-black">
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-80 h-80 rounded-full bg-gradient-to-r from-red-500 to-orange-500 opacity-20 blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 opacity-20 blur-3xl"></div>
-
-      <div className="container mx-auto px-4">
+    <section className="contact-section relative py-2 text-white overflow-hidden">
+      <div className="container mx-auto px-4 md:px-0">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Get in touch</h2>
-          <p className="text-gray-400 max-w-xl mx-auto">
-            Have a project in mind or just want to say hello? Feel free to reach out!
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Get in touch
+          </h2>
+          <p className="text-white max-w-xl mx-auto">
+            Have a project in mind or just want to say hello? Feel free to reach
+            out!
           </p>
         </div>
 
@@ -64,43 +52,37 @@ export default function ContactSection() {
           {/* Left side - Contact Information */}
           <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 flex flex-col justify-between h-full">
             <div>
-              <h3 className="text-2xl text-start font-bold text-white mb-8">Contact Information</h3>
-
+              <h3 className="text-2xl text-start font-bold text-white mb-8">
+                Contact Information
+              </h3>
               <div className="space-y-6 text-left">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
                     <FiMapPin className="text-purple-400" />
                   </div>
                   <div>
-                    <p className="text-gray-400 text-sm">Location</p>
-                    <p className="text-white font-medium">New Delhi, India</p>
+                    <p className="text-white text-sm">Location</p>
+                    <p className="text-white font-medium">Dwarka, New Delhi</p>
                   </div>
                 </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
-                    <CiPhone className="text-blue-400" />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Phone</p>
-                    <p className="text-white font-medium">+91 1234567890</p>
-                  </div>
-                </div>
-
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-pink-500/20 flex items-center justify-center">
                     <CiMail className="text-pink-400" />
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Email</p>
-                    <p className="text-white font-medium">your.email@example.com</p>
+                    <p className="text-white font-medium">
+                      hello@alsoshubham.com
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="mt-12">
-              <h4 className="text-xl text-start font-semibold text-white mb-4">Follow Me</h4>
+              <h4 className="text-xl text-start font-semibold text-white mb-4">
+                Follow Me
+              </h4>
               <div className="flex gap-4">
                 <a
                   href="https://instagram.com/alsoshubham.here"
@@ -119,12 +101,6 @@ export default function ContactSection() {
                   className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
                 >
                   <FaTwitter className="w-5 h-5 text-white" />
-                </a>
-                <a
-                  href="https://github.com/alsoshubham"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-                >
-                  <FaGithub className="w-5 h-5 text-white" />
                 </a>
               </div>
             </div>
@@ -210,6 +186,5 @@ export default function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

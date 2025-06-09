@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -10,45 +9,49 @@ import "./App.css";
 import Contact from "./components/Contact.jsx";
 import Projects from "./components/Projects.jsx";
 import Socials from "./components/Socials.jsx";
+import Services from "./pages/Services.jsx";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
+	{
+		path: "/",
+		element: <Layout />,
+		children: [
+			{
+				path: "/",
+				element: <Home />,
+			},
+			{
+				path: "/about",
+				element: <About />,
+			},
+			{
+				path: "/projects",
+				element: <Projects />,
+			},
+			{
+				path: "/contact",
+				element: <Contact />,
+			},
+			{
+				path: "*",
+				element: <div>Not Found</div>,
+			},
+			{
+				path: "/socials",
+				element: <Socials />,
+			},
       {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/about",
-        element: <About />,
-      },
-      {
-        path: "/projects",
-        element: <Projects />,
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
-      {
-        path: "*",
-        element: <div>Not Found</div>,
-      },
-      {
-        path: "/socials",
-        element: <Socials />,
+        path: "/services",
+        element: <Services/>
       }
-    ],
-  },
+		],
+	},
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    {/* <RouterProvider router={router} /> */}
-    <Home />
-  </StrictMode>
+	<StrictMode>
+		<RouterProvider router={router} />
+	</StrictMode>
 );
 
 

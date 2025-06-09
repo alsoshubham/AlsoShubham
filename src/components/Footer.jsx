@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaTwitter, FaInstagram } from "react-icons/fa";
 import { SiLinkedin, SiMedium } from "react-icons/si";
 
 const Footer = () => {
@@ -87,21 +87,14 @@ const Footer = () => {
             </div>
             <div className="flex space-x-4">
               <Link
-                to="#"
-                className="text-gray-400 hover:text-white"
-                aria-label="Facebook"
-              >
-                <FaFacebook size={24} alt="Facebook" />
-              </Link>
-              <Link
-                to="#"
+                to="https://x.com/alsoshubham_"
                 className="text-gray-400 hover:text-white"
                 aria-label="Twitter"
               >
                 <FaTwitter size={24} alt="Twitter" />
               </Link>
               <Link
-                to="#"
+                to="https://www.instagram.com/alsoshubham.here/"
                 className="text-gray-400 hover:text-white"
                 aria-label="Instagram"
               >

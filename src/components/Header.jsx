@@ -2,10 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 const Title = () => {
   return (
-    <div>
-      <h1 className="font-semibold text-3xl md:text-xl text-white text-center md:text-left">
-        AlsoShubham
-      </h1>
+    <div className="flex items-center gap-2">
+        <Link
+          to="/"
+          className="text-white text-xl font-sans-bold fontweight-bold"
+        >
+          alsoshubham
+        </Link>
     </div>
   );
 };

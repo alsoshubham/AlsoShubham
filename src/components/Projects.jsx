@@ -54,7 +54,6 @@ const ProjectsSection = () => {
     <div className="relative w-full overflow-x-hidden py-4 group">
       <div className="flex whitespace-nowrap animate-marquee group-hover:[animation-play-state:paused]">
         {children}
-        {children}
       </div>
     </div>
   );

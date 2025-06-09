@@ -13,15 +13,15 @@ export default function HeroSection() {
         blending <span className="text-purple-400 font-bold">Product Thinking</span>,<br />
         <span className="text-purple-400 font-bold">UX Strategy</span> and <span className="text-purple-400 font-bold">Engineering</span>
       </h2>
-      <div className="flex justify-start items-center">
+      <div className="flex flex-col sm:flex-row justify-start items-center gap-5 mb-10">
         <button
-          className="px-6 py-3 w-full sm:w-fit border border-purple-500 rounded-md mr-6 bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-700 hover:to-purple-900 text-white font-medium shadow-lg transition-colors duration-200"
+          className="px-6 py-3 w-full sm:w-fit border border-purple-500 rounded-md sm:mr-6 bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-700 hover:to-purple-900 text-white font-medium shadow-lg transition-colors duration-200"
           onClick={() => navigate("/projects")}
         >
           See My Work
         </button>
         <button
-          className="px-6 py-3 w-full sm:w-fit border border-purple-500 rounded-md mr-6 bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-700 hover:to-purple-900 text-white font-medium shadow-lg transition-colors duration-200"
+          className="px-6 py-3 w-full sm:w-fit border border-purple-500 rounded-md bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-700 hover:to-purple-900 text-white font-medium shadow-lg transition-colors duration-200"
           onClick={() => navigate("/contact")}
         >
           Let's Build Together

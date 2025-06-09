@@ -1,7 +1,4 @@
 import { useState, useRef } from "react";
-import { FiMapPin } from "react-icons/fi";
-import { CiMail } from "react-icons/ci";
-import { FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { IoIosSend } from "react-icons/io";
 
 import emailjs from "@emailjs/browser";
@@ -47,67 +44,7 @@ export default function ContactSection() {
             out!
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Left side - Contact Information */}
-          <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 flex flex-col justify-between h-full">
-            <div>
-              <h3 className="text-2xl text-start font-bold text-white mb-8">
-                Contact Information
-              </h3>
-              <div className="space-y-6 text-left">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
-                    <FiMapPin className="text-purple-400" />
-                  </div>
-                  <div>
-                    <p className="text-white text-sm">Location</p>
-                    <p className="text-white font-medium">Dwarka, New Delhi</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-pink-500/20 flex items-center justify-center">
-                    <CiMail className="text-pink-400" />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Email</p>
-                    <p className="text-white font-medium">
-                      hello@alsoshubham.com
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-12">
-              <h4 className="text-xl text-start font-semibold text-white mb-4">
-                Follow Me
-              </h4>
-              <div className="flex gap-4">
-                <a
-                  href="https://instagram.com/alsoshubham.here"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-                >
-                  <FaInstagram className="w-5 h-5 text-white" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/alsoshubham/"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-                >
-                  <FaLinkedinIn className="w-5 h-5 text-white" />
-                </a>
-                <a
-                  href="https://x.com/alsoshubham_"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-                >
-                  <FaTwitter className="w-5 h-5 text-white" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Right side - Contact Form */}
-          <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
+          <div className="bg-white/5 backdrop-blur-lg rounded-2xl justify-center items-center p-8 border border-white/10 shadow-lg max-w-3xl mx-auto">
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 gap-6">
                 <div className="space-y-2 text-left">
@@ -183,7 +120,6 @@ export default function ContactSection() {
               </button>
             </form>
           </div>
-        </div>
       </div>
     </section>
   );

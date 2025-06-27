@@ -16,12 +16,12 @@ const Title = () => {
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <header className="header flex flex-col md:flex-row justify-between items-center max-w-screen-xl mx-auto py-4 px-4 sticky top-0 bg-black z-50 shadow-lg">
+    <header className="header flex flex-col md:flex-row justify-between items-center max-w-screen-xl mx-auto py-3 px-4 fixed top-0 left-0 right-0 bg-black/90 backdrop-blur-md z-50 shadow-lg border-b border-gray-800">
       <div className="flex w-full md:w-auto justify-between items-center">
         <Title />
         {/* Hamburger Icon for Mobile */}
         <button
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-white focus:outline-none p-2 rounded hover:bg-gray-800 transition-colors duration-200"
           onClick={() => setMobileMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
@@ -31,46 +31,43 @@ function Header() {
         </button>
       </div>
       {/* Desktop Navigation */}
-      <nav className="hidden overflow-y-hidden md:flex flex-row justify-center items-center gap-8 w-full md:w-auto">
+      <nav className="hidden md:flex flex-row justify-center items-center gap-8 w-full md:w-auto">
         <ul className="flex flex-row gap-8">
           <li>
-            <Link to="/about" className="text-white">About</Link>
+            <Link to="/about" className="text-white hover:text-blue-400 transition-colors duration-200">About</Link>
           </li>
           <li>
-            <Link to="/projects" className="text-white">Projects</Link>
+            <Link to="/projects" className="text-white hover:text-blue-400 transition-colors duration-200">Projects</Link>
           </li>
           <li>
-            <Link to="/services" className="text-white">Services</Link>
+            <Link to="/services" className="text-white hover:text-blue-400 transition-colors duration-200">Services</Link>
           </li>
           <li>
-            <Link to="/contact" className="text-white">Contact</Link>
+            <Link to="/contact" className="text-white hover:text-blue-400 transition-colors duration-200">Contact</Link>
           </li>
           <li>
-            <Link to="https://medium.com/@alsoshubham" className="text-white">Blog</Link>
+            <a href="https://medium.com/@alsoshubham" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors duration-200">Blog</a>
           </li>
         </ul>
       </nav>
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <nav className="md:hidden absolute top-full left-0 w-full bg-gray-900 z-50 shadow-lg animate-fade-in">
+        <nav className="md:hidden absolute top-full left-0 w-full bg-gray-900/95 z-50 shadow-lg animate-fade-in border-b border-gray-800">
           <ul className="flex flex-col gap-4 p-6">
             <li>
-              <Link to="/about" className="text-white" onClick={() => setMobileMenuOpen(false)}>About</Link>
+              <Link to="/about" className="text-white text-lg hover:text-blue-400 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>About</Link>
             </li>
             <li>
-              <Link to="/projects" className="text-white" onClick={() => setMobileMenuOpen(false)}>Projects</Link>
+              <Link to="/projects" className="text-white text-lg hover:text-blue-400 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Projects</Link>
             </li>
             <li>
-              <Link to="/contact" className="text-white" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+              <Link to="/services" className="text-white text-lg hover:text-blue-400 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Services</Link>
             </li>
             <li>
-              <Link to="/blog" className="text-white" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
+              <Link to="/contact" className="text-white text-lg hover:text-blue-400 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
             </li>
             <li>
-              <Link to="/services" className="text-white" onClick={() => setMobileMenuOpen(false)}>Services</Link>
-            </li>
-            <li>
-              <Link to="https://medium.com/@alsoshubham" className="text-white" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
+              <a href="https://medium.com/@alsoshubham" target="_blank" rel="noopener noreferrer" className="text-white text-lg hover:text-blue-400 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Blog</a>
             </li>
           </ul>
         </nav>

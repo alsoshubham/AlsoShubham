@@ -17,7 +17,7 @@ export default function About() {
           </div>
           <div className="md:w-7/12 lg:w-6/12 space-y-4">
             <p className="mt-6 text-[#ffffff] font-normal text-start text-lg md:text-xl leading-relaxed">
-              I'm the co-founder of taxesnotice, Ecom - Skyn globals, Ex-Neenva, Stealth and many, also a builder passionate about solutions that solve
+              Hi, I am Shubham, building product for taxesnotice, Ecom - Skyn globals, Ex-Neenva, Stealth and many, passionate about solutions that solve
               real problems. <br />
               With experience leading and launching 0→1 products, I operate at
               the intersection of Product Strategy, UX Design, and Software

@@ -11,8 +11,7 @@ const Footer = () => {
   const [email, setEmail] = useState("");
 
   const quickLinks = [
-    { name: "About Us", href: "/about" },
-    { name: "Our Services", href: "/services" },
+    { name: "About Me", href: "/about" },
     { name: "Blog", href: "/blog" },
     { name: "Contact Us", href: "/contact" },
   ];
@@ -73,7 +72,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3 text-sm">
                 <Mail className="w-4 h-4 text-blue-400" />
                 <a
-                  href="mailto:hello@alsoshubham.com"
+                  href="mailto:hello.alsoshubham@gmail.com"
                   className="hover:text-white transition-colors"
                 >
                   hello.alsoshubham@gmail.com

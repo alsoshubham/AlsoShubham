@@ -13,6 +13,11 @@ const Title = () => {
   );
 };
 
+ const openCalendly = () => {
+    window.open('https://calendly.com/hello-alsoshubham/30min', '_blank');
+  };
+
+
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
@@ -34,40 +39,37 @@ function Header() {
       <nav className="hidden md:flex flex-row justify-center items-center gap-8 w-full md:w-auto">
         <ul className="flex flex-row gap-8">
           <li>
-            <Link to="/about" className="text-white hover:text-blue-400 transition-colors duration-200">About</Link>
+            <Link to="/about" className="text-white hover:text-purple-400 transition-colors duration-200">About</Link>
           </li>
           <li>
-            <Link to="/projects" className="text-white hover:text-blue-400 transition-colors duration-200">Projects</Link>
+            <Link to="/projects" className="text-white hover:text-purple-400 transition-colors duration-200">Projects</Link>
           </li>
           <li>
-            <Link to="/services" className="text-white hover:text-blue-400 transition-colors duration-200">Services</Link>
-          </li>
-          <li>
-            <Link to="/contact" className="text-white hover:text-blue-400 transition-colors duration-200">Contact</Link>
-          </li>
-          <li>
-            <a href="https://medium.com/@alsoshubham" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors duration-200">Blog</a>
+            <a href="https://medium.com/@alsoshubham" target="_blank" rel="noopener noreferrer" className="text-white hover:text-purple-400 transition-colors duration-200">Blog</a>
           </li>
         </ul>
+        <button
+          className="px-7 py-3 rounded-full bg-transparent border-2 border-purple-500 text-purple-300 font-semibold text-base hover:bg-purple-600/10 hover:text-white hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400"
+          onClick={openCalendly}
+        >
+          Say Hello!
+        </button>
       </nav>
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
         <nav className="md:hidden absolute top-full left-0 w-full bg-gray-900/95 z-50 shadow-lg animate-fade-in border-b border-gray-800">
           <ul className="flex flex-col gap-4 p-6">
             <li>
-              <Link to="/about" className="text-white text-lg hover:text-blue-400 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>About</Link>
+              <Link to="/about" className="text-white text-lg hover:text-purple-400 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>About</Link>
             </li>
             <li>
-              <Link to="/projects" className="text-white text-lg hover:text-blue-400 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Projects</Link>
+              <Link to="/projects" className="text-white text-lg hover:text-purple-400 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Projects</Link>
             </li>
             <li>
-              <Link to="/services" className="text-white text-lg hover:text-blue-400 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Services</Link>
+              <Link to="/contact" className="text-white text-lg hover:text-purple-400 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
             </li>
             <li>
-              <Link to="/contact" className="text-white text-lg hover:text-blue-400 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
-            </li>
-            <li>
-              <a href="https://medium.com/@alsoshubham" target="_blank" rel="noopener noreferrer" className="text-white text-lg hover:text-blue-400 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Blog</a>
+              <a href="https://medium.com/@alsoshubham" target="_blank" rel="noopener noreferrer" className="text-white text-lg hover:text-purple-400 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>Blog</a>
             </li>
           </ul>
         </nav>

@@ -6,8 +6,8 @@ const Socials = () => {
   return (
     <section className="socials-container max-w-screen-xl mx-auto px-4 md:px-0 my-10 md:my-20 relative">
       <div className="flex flex-col items-center justify-center relative">
-        <div className="circle1" />
-        <div className="circle2" />
+        {/* <div className="circle1" />
+        <div className="circle2" /> */}
 
         <div className="z-10 bg-white bg-opacity-20 backdrop-blur-lg rounded-lg p-8 text-center shadow-lg relative">
           {/* Heading */}
@@ -33,7 +33,7 @@ const Socials = () => {
               <FaTwitter className="w-5 h-5" />
             </a>
             <a
-              href="https://www.instagram.com/alsoshubham.here/"
+              href="https://www.instagram.com/alsoshubham/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-purple-400 transition-colors duration-200"
@@ -72,7 +72,7 @@ const Socials = () => {
               className="text-white hover:text-purple-400 transition-colors duration-200"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => window.open("mailto:hello@alsoshubham.com")}
+              onClick={() => window.open("mailto:hello.alsoshubham@gmail.com")}
             >
               <Mail />
             </a>

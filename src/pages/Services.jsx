@@ -1,68 +1,111 @@
-/* eslint-disable react/no-unescaped-entities */
-export default function Services() {
-    return (
-        <section className="px-6 py-16">
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-4">What I Do</h2>
-        <p className="text-lg mb-12">
-          Helping early-stage startups go from idea to impact.
-        </p>
+import "./Service.css"; // we'll add custom keyframes here for smooth scrolling
+
+const productManagement = [
+  "MVP",
+  "Roadmap",
+  "Backlog",
+  "Sprint",
+  "User Story",
+  "Epic",
+  "Persona",
+  "Customer Journey Map",
+  "KPIs",
+  "OKRs",
+  "Churn Rate",
+  "CAC",
+  "LTV",
+  "North Star Metric",
+  "Product-Market Fit",
+  "A/B Testing",
+  "NPS",
+  "Changelog",
+  "Go-to-Market Strategy",
+  "Stakeholder Management",
+];
+
+const softwareEngineering = [
+  "SDLC",
+  "OOP",
+  "Data Structures & Algorithms",
+  "System Design",
+  "API Development",
+  "Cloud Computing",
+  "Microservices",
+  "Agile & Scrum",
+  "CI/CD",
+  "TDD",
+  "Git",
+  "Code Optimization",
+  "Security",
+  "Scalability",
+  "SQL/NoSQL",
+  "DevOps",
+  "Debugging",
+  "Software Architecture",
+  "Cross-Platform",
+  "Automation",
+];
+
+const uxStrategies = [
+  "Design Thinking",
+  "User Research",
+  "Information Architecture",
+  "Wireframing",
+  "Prototyping",
+  "Usability Testing",
+  "Journey Mapping",
+  "Persona Development",
+  "Interaction Design",
+  "Accessibility",
+  "Human-Centered Design",
+  "Content Strategy",
+  "Heuristic Evaluation",
+  "Visual Hierarchy",
+  "UX Metrics",
+  "Experience Mapping",
+  "Service Design",
+  "Stakeholder Workshops",
+  "Innovation Strategy",
+];
+
+import PropTypes from "prop-types";
+
+const ScrollingRow = ({ items, direction }) => {
+  return (
+    <div className="overflow-hidden whitespace-nowrap w-full py-4">
+      <div
+        className={`flex gap-4 ${
+          direction === "right"
+            ? "animate-scroll-right"
+            : "animate-scroll-left"
+        }`}
+      >
+        {[...items, ...items].map((item, i) => (
+          <span
+            key={i}
+            className="px-7 py-3 rounded-full bg-transparent border-2 border-purple-500 text-purple-300 font-semibold text-base hover:bg-purple-600/10 hover:text-white hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400"
+          >
+            {item}
+          </span>
+        ))}
       </div>
+    </div>
+  );
+};
 
-      <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-        {/* Product Strategy */}
-        <div className="p-6 rounded-xl shadow-lg border bg-white/20 backdrop-blur-md text-white border-white/10">
-          <h3 className="text-xl font-semibold mb-2 text-purple-400">Product Thinking</h3>
-          <p className="text-gray-200 mb-4">Build the right thing, the right way.</p>
-          <ul className="list-disc list-inside text-start text-sm text-gray-100 space-y-1">
-            <li>Roadmapping & feature prioritization</li>
-            <li>User research & problem discovery</li>
-            <li>Lean experimentation & iteration</li>
-            <li>Define vision, scope, and MVPs</li>
-          </ul>
-          <p className="mt-4 text-sm italic text-gray-300">
-            Outcome: Align teams on what matters and reduce go-to-market risk.
-          </p>
-        </div>
+ScrollingRow.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
+  direction: PropTypes.oneOf(["left", "right"]).isRequired,
+};
 
-        {/* Technical Execution */}
-        <div className="p-6 rounded-xl shadow-lg border bg-white/20 backdrop-blur-md text-white border-white/10">
-          <h3 className="text-xl font-semibold mb-2 text-purple-400">Engineering</h3>
-          <p className="text-gray-200 mb-4">From wireframe to working product.</p>
-          <ul className="list-disc list-inside text-start text-sm text-gray-100 space-y-1">
-            <li>Tech Building</li>
-            <li>Scalable component systems</li>
-            <li>API integration & performance</li>
-            <li>SEO, analytics, deployment</li>
-          </ul>
-          <p className="mt-4 text-sm italic text-gray-300">
-            Outcome: High-performing, production-ready interfaces.
-          </p>
-        </div>
-
-        {/* UX & Interface Design */}
-        <div className="p-6 rounded-xl shadow-lg border bg-white/20 backdrop-blur-md text-white border-white/10">
-          <h3 className="text-xl font-semibold mb-2 text-purple-400">UX Strategies</h3>
-          <p className="text-gray-200 mb-4">Craft experiences users love.</p>
-          <ul className="list-disc list-inside text-start text-sm text-gray-100 space-y-1">
-            <li>Information architecture & flows</li>
-            <li>Wireframes & low-fi prototyping</li>
-            <li>Conversion-focused layout & CTAs</li>
-            <li>Accessibility & responsive design</li>
-          </ul>
-          <p className="mt-4 text-sm italic text-gray-300">
-            Outcome: Intuitive, engaging designs that build trust.
-          </p>
-        </div>
-      </div>
-
-      <div className="mt-16 text-center max-w-2xl mx-auto">
-        <p className="text-base text-white mb-4">
-          <span className="font-medium">The value I bring is not just in what I do — but how I connect it all.</span> I bridge
-          product clarity, design empathy, and dev execution — the toolkit founders need when
-          everything is still fuzzy and fragile.
-        </p>
-      </div>
+const Services = () => {
+  return (
+    <section className="bg-black text-white py-12">
+      <ScrollingRow items={productManagement} direction="right" />
+      <ScrollingRow items={softwareEngineering} direction="left" />
+      <ScrollingRow items={uxStrategies} direction="right" />
     </section>
-    )
-}
+  );
+};
+
+export default Services;

@@ -74,19 +74,19 @@ const ProjectsSection = () => {
         </div>
         <Marquee>
           {filteredProjects.map((project) => (
-            <div key={project.id} className="inline-block mx-4 w-80 align-top">
+            <div key={project.id} className="inline-block mx-4 w-80 align-top infinite-card">
               <ProjectCard
                 title={project.title}
                 tag={project.tag}
                 imgUrl={project.image}
-                gitUrl={project.gitUrl}
+                // gitUrl={project.gitUrl}
                 description={project.description}
-                previewUrl={project.previewUrl}
+                // previewUrl={project.previewUrl}
               />
             </div>
           ))}
         </Marquee>
-        <button>
+        {/* <button>
           <a
             href="https://medium.com/@alsoshubham"
             target="_blank"
@@ -96,7 +96,7 @@ const ProjectsSection = () => {
           >
             Read More on Medium 
           </a>
-        </button>
+        </button> */}
       </div>
     </section>
   );

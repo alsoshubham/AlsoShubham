@@ -10,7 +10,7 @@ export default function About() {
             About Me
           </h1>
           <div className="space-y-6 justify-evenly md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
-            <div>
+            <div className="flex justify-center w-full md:w-auto mb-4 md:mb-0">
               <img
                 className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover"
                 src={assets.p1}

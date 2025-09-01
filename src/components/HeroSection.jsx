@@ -8,7 +8,7 @@ export default function HeroSection() {
 
   // Open Calendly in a new tab for faster experience
   const openCalendly = () => {
-    window.open('https://calendly.com/hello-alsoshubham/30min', '_blank');
+    window.open('https://calendly.com/alsoshubham/30min', '_blank');
   };
 
   return (

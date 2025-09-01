@@ -86,17 +86,6 @@ const ProjectsSection = () => {
             </div>
           ))}
         </Marquee>
-        {/* <button>
-          <a
-            href="https://medium.com/@alsoshubham"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 w-full sm:w-fit border border-purple-500 rounded-md mr-6 bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-700 hover:to-purple-900 text-white font-medium shadow-lg transition-colors duration-200"
-            onClick={() => window.open("https://medium.com/@alsoshubham", "_blank")}
-          >
-            Read More on Medium 
-          </a>
-        </button> */}
       </div>
     </section>
   );

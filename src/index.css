@@ -2,3 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Hide horizontal scrollbar for projects scroller */
+.projects-scroller {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+.projects-scroller::-webkit-scrollbar {
+	display: none; /* WebKit */
+}
+

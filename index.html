@@ -8,8 +8,26 @@
   <link rel="preload" href="https://assets.calendly.com/assets/external/widget.js" as="script">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   </head>
-  <body style="background-color: black;
-    color: white;">
+  <body class="bg-white text-black dark:bg-black dark:text-white">
+    <script>
+      // Immediately apply theme to avoid FOUC.
+      (function(){
+        try {
+          var stored = localStorage.getItem('theme');
+          if (stored === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else if (stored === 'light') {
+            document.documentElement.classList.remove('dark');
+          } else {
+            // follow system
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDark) document.documentElement.classList.add('dark');
+          }
+        } catch (e) {
+          // ignore
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

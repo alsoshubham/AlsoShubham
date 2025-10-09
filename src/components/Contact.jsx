@@ -33,22 +33,22 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="contact-section relative py-2 text-white overflow-hidden">
+    <section className="contact-section relative py-2 text-black dark:text-white overflow-hidden my-10 md:my-20">
       <div className="container mx-auto px-4 md:px-0">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-4">
             Get in touch
           </h2>
-          <p className="text-white max-w-xl mx-auto">
+          <p className="max-w-xl mx-auto">
             Have a project in mind or just want to say hello? Feel free to reach
             out!
           </p>
         </div>
-          <div className="bg-white/5 backdrop-blur-lg rounded-2xl justify-center items-center p-8 border border-white/10 shadow-lg max-w-3xl mx-auto">
+          <div className="backdrop-blur-lg rounded-2xl justify-center items-center p-8 border border-white/10 shadow-lg max-w-3xl mx-auto">
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 gap-6">
                 <div className="space-y-2 text-left">
-                  <label htmlFor="name" className="text-white">
+                  <label htmlFor="name">
                     Full Name
                   </label>
                   <input
@@ -56,12 +56,12 @@ export default function ContactSection() {
                     name="user_name"
                     placeholder="Your name"
                     required
-                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 block w-full px-4 py-3 rounded-lg"
+                    className="border-white/10 placeholder:text-gray-500 bg-gray-200 block w-full px-4 py-3 rounded-lg"
                   />
                 </div>
 
                 <div className="space-y-2 text-left">
-                  <label htmlFor="email" className="text-white">
+                  <label htmlFor="email">
                     Email
                   </label>
                   <input
@@ -70,12 +70,12 @@ export default function ContactSection() {
                     type="email"
                     placeholder="your.email@example.com"
                     required
-                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 block w-full px-4 py-3 rounded-lg"
+                    className="border-white/10 placeholder:text-gray-500 bg-gray-200 block w-full px-4 py-3 rounded-lg"
                   />
                 </div>
 
                 <div className="space-y-2 text-left">
-                  <label htmlFor="subject" className="text-white">
+                  <label htmlFor="subject">
                     Subject
                   </label>
                   <input
@@ -83,12 +83,12 @@ export default function ContactSection() {
                     name="subject"
                     placeholder="What is this regarding?"
                     required
-                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 block w-full px-4 py-3 rounded-lg"
+                    className="border-white/10 placeholder:text-gray-500 bg-gray-200 block w-full px-4 py-3 rounded-lg"
                   />
                 </div>
 
                 <div className="space-y-2 text-left">
-                  <label htmlFor="message" className="text-white">
+                  <label htmlFor="message">
                     Message
                   </label>
                   <textarea
@@ -96,7 +96,7 @@ export default function ContactSection() {
                     name="message"
                     placeholder="Tell me about your project or inquiry..."
                     required
-                    className="min-h-[150px] bg-white/5 border-white/10 text-white placeholder:text-gray-500  block w-full px-4 py-3 rounded-lg"
+                    className="min-h-[150px] border-white/10 placeholder:text-gray-500 bg-gray-200  block w-full px-4 py-3 rounded-lg"
                   />
                 </div>
               </div>
@@ -104,7 +104,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white py-3 rounded-lg transition-all"
+                className="w-full bg-gradient-to-r from-purple-500 to-purple-700 py-3 rounded-lg transition-all"
               >
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">

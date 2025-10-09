@@ -1,140 +1,175 @@
-/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/prop-types */
 // import { FaCheck } from "react-icons/fa6";
+import { useState, useId } from "react";
 import { assets } from "../assets/assets";
+import { Target, Cog, Lightbulb, ChevronDown } from "lucide-react";
+function CollapsibleCard({ title, summary, bullets = [], icon, index, activeIndex, onToggle }) {
+  const id = useId();
+  const open = activeIndex === index;
+
+  return (
+    <div
+      className={`mb-4 rounded-lg overflow-hidden transition-all duration-300 ${
+        open
+          ? "border border-purple-500 shadow-lg"
+          : "border border-gray-200 shadow-sm hover:shadow-md hover:border-purple-400"
+      }`}
+    >
+      <button
+        type="button"
+        onClick={() => onToggle && onToggle(index)}
+        aria-expanded={open}
+        aria-controls={`panel-${id}`}
+        className={`w-full text-left px-6 py-5 font-medium flex justify-between items-center transition-colors ${
+          open
+            ? "bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+            : "bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+        }`}
+      >
+        <span className="flex items-center">
+          {icon ? <span className="mr-4 text-purple-500 dark:text-indigo-300">{icon}</span> : null}
+          <span>{title}</span>
+        </span>
+
+        <ChevronDown
+          className={`w-5 h-5 text-purple-600 transform transition-transform duration-300 ${
+            open ? "rotate-180" : "rotate-0"
+          }`}
+        />
+      </button>
+
+      <div className={`overflow-hidden transition-all duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
+        <div className="px-6 py-4 bg-white text-gray-700 border-t border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+          <p className="text-gray-700 text-start dark:text-gray-200">{summary}</p>
+          {bullets && bullets.length > 0 && (
+            <ul className="list-disc list-inside text-start text-sm text-gray-700 dark:text-gray-200 mt-3 space-y-1">
+              {bullets.map((b, i) => (
+                <li key={i}>{b}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
 export default function About() {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
   return (
     <div>
       <section className="max-w-screen-xl mx-auto px-4 md:px-0 my-10 md:my-20">
-        <div className="text-white">
-          <h1 className=" heading flex justify-center text-3xl md:text-4xl mb-4 font-bold">
-            About Me
+        <div className="text-black dark:text-white">
+          <h1 className="heading flex justify-start text-3xl md:text-4xl mb-4 font-semibold">
+            About
           </h1>
-          <div className="space-y-6 justify-evenly md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
-            <div className="flex justify-center w-full md:w-auto mb-4 md:mb-0">
-              <img
-                className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover"
-                src={assets.p1}
-                alt="profile_img"
-              />
-            </div>
-            <div className="md:w-7/12 lg:w-6/12 space-y-4">
-              <p className="mt-6 text-[#ffffff] font-normal text-start text-lg md:text-xl leading-relaxed">
-                Hi, I’m a CS Engineer turned into UX Strategist and Product
-                Manager, who’s now helping Businesses and Brands. <br />
-                helping brands craft better experiences and guiding design
-                aspirants to understand the “why” behind great products.
-                <br />
-                I’m also the co-founder of DezHub India, a design-driven
-                community where we host events, workshops, and challenges to
-                inspire creativity and collaboration. Alongside this, I founded
-                a venture dedicated to manufacturing Braille learning kits for
-                visually impaired students, reflecting my belief that design
-                should always serve people first. <br />
-                Whether it’s mentoring,
-                strategizing, or creating, I thrive on turning ideas into
-                meaningful, user-centric products.
+          <h2 className="text-lg md:text-xl text-start text-black dark:text-gray-300 font-normal leading-relaxed">
+            A bit about me, my journey so far, and what I do.
+          </h2>
+          <div className="space-y-6 md:space-y-0 md:flex md:items-center md:gap-8 lg:gap-12">
+            {/* Left: text content */}
+            <div className="md:w-7/12 lg:w-7/12">
+              <p className="mt-6 text-sm md:text-md text-start text-gray-700 dark:text-gray-200 font-normal leading-relaxed">
+                Hey, I’m a CS engineer who found his spark in design and product
+                strategy. These days, I help businesses craft better user
+                experiences and guide design aspirants to see the why behind
+                what makes great products work. <br /> I grew up in a family
+                that valued stability, but I’ve always been driven to carve my
+                own path to experiment, fail, learn, and build from scratch. I
+                started off sketching, thinking art would be my future. That
+                early dream didn’t quite land, but it gave me the hunger to
+                create and explore. I dove into engineering not just for the
+                degree, but for the space to learn everything I could about
+                design, marketing, business, and entrepreneurship. I got my
+                hands on Photoshop, Illustrator, Blender, XD, film designing,
+                content writing, and everything learned how ideas evolve into
+                real products and brands. <br /> Over time, I’ve explored
+                projects across industries from TV commercials, media agencies,
+                design, into tech and product. From building a chess-learning
+                platform to designing assistive tech for visually impaired
+                students at IIT Roorkee, now building my brand KAAI, a
+                climate-tech startup based on liquid-tree air purification
+                technology. Each idea, whether it took off or not, taught me
+                something new about empathy, users, and execution. <br /> Of
+                course, it wasn’t all smooth sailing. I’ve had partnerships go
+                wrong, promises fall through, and projects stall. But those
+                experiences taught me the stuff no book covers: documentation,
+                trust, and what it really means to build with people. <br />{" "}
+                Now, I see myself as a product-focused builder someone who loves
+                turning ideas into something real, scalable, and meaningful. My
+                journey has been full of experiments, setbacks, and comebacks
+                and honestly, I wouldn’t have it any other way.
               </p>
-              {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 tex</p>t-base">
-                <div className="flex items-center gap-2">
-                  <FaCheck className="text-green-400" />
-                  <span>Figuring out users need.</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaCheck className="text-green-400" />
-                  <span>Distilling the needs into lean MVPs.</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaCheck className="text-green-400" />
-                  <span>Building products that users love.</span>
-                </div>
-              </div> */}
-              <div className="mt-4 flex justify-start items-center gap-5">
-                <a
-                  onClick={() => window.open("https://medium.com/@alsoshubham/my-journey-from-engineering-to-ux-product-strategy-c585b0e601a9", "_blank")}
-                  rel="noopener noreferrer"
-                  className="px-7 py-3 rounded-full bg-transparent border-2 border-purple-500 text-purple-300 font-semibold text-base hover:bg-purple-600/10 hover:text-white hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400"
-                >
-                  More about me
-                </a>
+            </div>
+
+            {/* Right: image card */}
+            <div className="flex justify-center md:justify-end md:w-5/12">
+              <div className="w-full max-w-lg rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800">
+                <img
+                  className="w-full h-64 md:h-80 object-cover"
+                  src={assets.p1}
+                  alt="profile_img"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="px-6 py-16">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">What I Do</h2>
-          <p className="text-lg mb-12">
-            Helping early-stage startups go from idea to impact.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          {/* Product Strategy */}
-          <div className="p-6 rounded-xl shadow-lg border bg-white/20 backdrop-blur-md text-white border-white/10">
-            <h3 className="text-xl font-semibold mb-2 text-purple-400">
-              Product Thinking
-            </h3>
-            <p className="text-gray-200 mb-4">
-              Build the right thing, the right way.
+      <section className="px-6 pt-16">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+          <div className="text-start md:pr-10">
+            <h2 className="text-4xl font-semibold mb-4">What I Do</h2>
+            <p className="text-lg text-gray-700 dark:text-gray-200">
+              Helping early-stage startups go from idea to impact.
             </p>
-            <ul className="list-disc list-inside text-start text-sm text-gray-100 space-y-1">
-              <li>Roadmapping & feature prioritization</li>
-              <li>User research & problem discovery</li>
-              <li>Lean experimentation & iteration</li>
-              <li>Define vision, scope, and MVPs</li>
-            </ul>
-            <p className="mt-4 text-sm italic text-gray-300">
-              Outcome: Align teams on what matters and reduce go-to-market risk.
+            <p className="text-sm text-gray-700 dark:text-gray-200">
+              The value I bring is not just in what I do, but how I connect it
+              all. I bridge product clarity, design empathy, and dev execution
+              the toolkit founders need when everything is still fuzzy and
+              fragile.
             </p>
           </div>
+          {/* Right: stacked feature cards */}
+          <div className="space-y-6">
+            <CollapsibleCard
+              index={0}
+              activeIndex={activeIndex}
+              onToggle={toggleAccordion}
+              title="Product Thinking"
+              summary="Build the right thing, the right way."
+              bullets={[
+                'Roadmapping & feature prioritization',
+                'User research & problem discovery',
+                'Lean experimentation & iteration',
+                'Define vision, scope, and MVPs',
+              ]}
+              icon={<Target />}
+            />
 
-          {/* Technical Execution */}
-          <div className="p-6 rounded-xl shadow-lg border bg-white/20 backdrop-blur-md text-white border-white/10">
-            <h3 className="text-xl font-semibold mb-2 text-purple-400">
-              Engineering
-            </h3>
-            <p className="text-gray-200 mb-4">
-              From wireframe to working product.
-            </p>
-            <ul className="list-disc list-inside text-start text-sm text-gray-100 space-y-1">
-              <li>Tech Building</li>
-              <li>Scalable component systems</li>
-              <li>API integration & performance</li>
-              <li>SEO, analytics, deployment</li>
-            </ul>
-            <p className="mt-4 text-sm italic text-gray-300">
-              Outcome: High-performing, production-ready interfaces.
-            </p>
+            <CollapsibleCard
+              index={1}
+              activeIndex={activeIndex}
+              onToggle={toggleAccordion}
+              title="Engineering"
+              summary="From wireframe to working product."
+              bullets={['Tech Building', 'Scalable component systems', 'API integration & performance', 'SEO, analytics, deployment']}
+              icon={<Cog />}
+            />
+
+            <CollapsibleCard
+              index={2}
+              activeIndex={activeIndex}
+              onToggle={toggleAccordion}
+              title="UX Strategies"
+              summary="Craft experiences users love."
+              bullets={['Information architecture & flows', 'Wireframes & low-fi prototyping', 'Conversion-focused layout & CTAs', 'Accessibility & responsive design']}
+              icon={<Lightbulb />}
+            />
           </div>
-
-          {/* UX & Interface Design */}
-          <div className="p-6 rounded-xl shadow-lg border bg-white/20 backdrop-blur-md text-white border-white/10">
-            <h3 className="text-xl font-semibold mb-2 text-purple-400">
-              UX Strategies
-            </h3>
-            <p className="text-gray-200 mb-4">Craft experiences users love.</p>
-            <ul className="list-disc list-inside text-start text-sm text-gray-100 space-y-1">
-              <li>Information architecture & flows</li>
-              <li>Wireframes & low-fi prototyping</li>
-              <li>Conversion-focused layout & CTAs</li>
-              <li>Accessibility & responsive design</li>
-            </ul>
-            <p className="mt-4 text-sm italic text-gray-300">
-              Outcome: Intuitive, engaging designs that build trust.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-16 text-center max-w-2xl mx-auto">
-          <p className="text-base text-white mb-4">
-            <span className="font-medium">
-              The value I bring is not just in what I do — but how I connect it
-              all.
-            </span>{" "}
-            I bridge product clarity, design empathy, and dev execution — the
-            toolkit founders need when everything is still fuzzy and fragile.
-          </p>
         </div>
       </section>
     </div>

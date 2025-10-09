@@ -1,39 +1,41 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
-import { FaGithub } from "react-icons/fa";
-import { FaEye } from "react-icons/fa";
+// import { Link } from "react-router-dom";
+// import { FaGithub } from "react-icons/fa";
+// import { FaEye } from "react-icons/fa";
 
 const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
   // Truncate description to 200 characters
   const truncate = (str, n) => (str && str.length > n ? str.slice(0, n) + "..." : str);
+
+  const href = previewUrl || gitUrl || "#";
+
   return (
-    <div className="w-80 h-[400px] flex flex-col justify-between bg-[#181818] rounded-xl shadow-lg overflow-hidden border border-[#232323]">
-      {/* Project image with overlay */}
-      <div
-        className="h-52 md:h-52 rounded-t-xl relative group overflow-hidden"
-        style={{ background: `url(${imgUrl})`, backgroundSize: "cover", backgroundPosition: "center" }}
-      >
-        <div
-          className="absolute top-0 left-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-          style={{ backgroundImage: `url(${imgUrl})` }}
-        ></div>
-      </div>
-      {/* Project details */}
-      <div className="flex flex-col flex-1 text-white text-start rounded-b-xl bg-[#181818] py-4 px-4">
-        <h5 className="text-xl font-semibold mb-2 line-clamp-2">{title}</h5>
-        <p className="text-[#ADB7BE] text-sm mb-4 break-words line-clamp-5">{truncate(description, 200)}</p>
-        <div className="flex mt-2 justify-between items-center">
-          <Link
-            to={gitUrl}
-            className="flex gap-2 text-gray-500 hover:text-white group/link items-center"
-          ><FaGithub />Source Code</Link>
-          <Link
-            to={previewUrl}
-            className="flex gap-2 text-gray-500 hover:text-white group/link items-center"
-          ><FaEye />Live Preview</Link>
+    <a
+      href={href}
+      target={href !== "#" ? "_blank" : undefined}
+      rel={href !== "#" ? "noreferrer" : undefined}
+      aria-label={`Open project ${title}`}
+      className="w-80 flex flex-col justify-between rounded-2xl overflow-hidden border bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 shadow-md transition-transform transform hover:-translate-y-2 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+    >
+      {/* Image - enforce consistent square aspect ratio for all cards */}
+      <div className="w-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
+        <div className="relative w-full" style={{ paddingBottom: "100%" }}>
+          <img
+            src={imgUrl}
+            alt={title}
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
         </div>
       </div>
-    </div>
+
+      {/* Details panel */}
+      <div className="flex flex-col flex-1 px-6 py-5 bg-white dark:bg-gray-900 text-start">
+        <h5 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100 line-clamp-2">{title}</h5>
+        <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 break-words line-clamp-4">{truncate(description, 200)}</p>
+        {/* optional actions could go here */}
+      </div>
+    </a>
   );
 };
 export default ProjectCard;

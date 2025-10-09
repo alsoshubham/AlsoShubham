@@ -36,7 +36,7 @@ const ProjectsSection = () => {
 
     return (
       <button
-        className={`${buttonStyles} rounded-full px-6 py-2 text-1xl cursor-pointer`}
+        className={`${buttonStyles} rounded-full px-6 py-2 text-xl cursor-pointer`}
         onClick={() => onClick(name)}
       >
         {name}
@@ -62,26 +62,28 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section className="projects-section py-16">
-      <div className="container mx-auto px-4 md:px-0 text-white text-center mb-12 flex flex-col items-center gap-4">
-        <div className="max-w-5xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Projects & Case Studies</h2>
-          <p className="text-lg text-white">
-            Real products. Real users. Real impact. Here's a selection of
-            products I've helped shape, scale, or ship — with deep involvement
-            from discovery to delivery.
+    <section className="projects-section my-10 md:my-20">
+      <div
+        className="container mx-auto px-4 md:px-0 text-black
+       dark:text-white text-center mb-12 flex flex-col items-center gap-4"
+      >
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-4xl font-semibold mb-4">Projects & Case Studies</h2>
+          <p className="text-lg text-gray-700 dark:text-gray-300">
+            Real products. Real users. Real impact.
           </p>
         </div>
         <Marquee>
           {filteredProjects.map((project) => (
-            <div key={project.id} className="inline-block mx-4 w-80 align-top infinite-card">
+            <div
+              key={project.id}
+              className="inline-block mx-4 w-80 align-top infinite-card"
+            >
               <ProjectCard
                 title={project.title}
                 tag={project.tag}
                 imgUrl={project.image}
-                // gitUrl={project.gitUrl}
                 description={project.description}
-                // previewUrl={project.previewUrl}
               />
             </div>
           ))}

@@ -83,7 +83,7 @@ const ScrollingRow = ({ items, direction }) => {
         {[...items, ...items].map((item, i) => (
           <span
             key={i}
-            className="px-7 py-3 rounded-full bg-transparent border-2 border-purple-500 text-purple-300 font-semibold text-base hover:bg-purple-600/10 hover:text-white hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400"
+            className="px-7 py-3 rounded-full bg-transparent border-2 border-purple-500 text-black dark:text-white font-semibold text-base hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400"
           >
             {item}
           </span>
@@ -100,7 +100,7 @@ ScrollingRow.propTypes = {
 
 const Services = () => {
   return (
-    <section className="bg-black text-white py-12">
+    <section className="bg-transparent text-black  dark:text-white">
       <ScrollingRow items={productManagement} direction="right" />
       <ScrollingRow items={softwareEngineering} direction="left" />
       <ScrollingRow items={uxStrategies} direction="right" />

@@ -3,7 +3,15 @@
 import { useState, useId } from "react";
 import { assets } from "../assets/assets";
 import { Target, Cog, Lightbulb, ChevronDown } from "lucide-react";
-function CollapsibleCard({ title, summary, bullets = [], icon, index, activeIndex, onToggle }) {
+function CollapsibleCard({
+  title,
+  summary,
+  bullets = [],
+  icon,
+  index,
+  activeIndex,
+  onToggle,
+}) {
   const id = useId();
   const open = activeIndex === index;
 
@@ -27,7 +35,11 @@ function CollapsibleCard({ title, summary, bullets = [], icon, index, activeInde
         }`}
       >
         <span className="flex items-center">
-          {icon ? <span className="mr-4 text-purple-500 dark:text-indigo-300">{icon}</span> : null}
+          {icon ? (
+            <span className="mr-4 text-purple-500 dark:text-indigo-300">
+              {icon}
+            </span>
+          ) : null}
           <span>{title}</span>
         </span>
 
@@ -38,9 +50,15 @@ function CollapsibleCard({ title, summary, bullets = [], icon, index, activeInde
         />
       </button>
 
-      <div className={`overflow-hidden transition-all duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          open ? "max-h-96" : "max-h-0"
+        }`}
+      >
         <div className="px-6 py-4 bg-white text-gray-700 border-t border-gray-100 dark:bg-gray-800 dark:border-gray-700">
-          <p className="text-gray-700 text-start dark:text-gray-200">{summary}</p>
+          <p className="text-gray-700 text-start dark:text-gray-200">
+            {summary}
+          </p>
           {bullets && bullets.length > 0 && (
             <ul className="list-disc list-inside text-start text-sm text-gray-700 dark:text-gray-200 mt-3 space-y-1">
               {bullets.map((b, i) => (
@@ -142,10 +160,10 @@ export default function About() {
               title="Product Thinking"
               summary="Build the right thing, the right way."
               bullets={[
-                'Roadmapping & feature prioritization',
-                'User research & problem discovery',
-                'Lean experimentation & iteration',
-                'Define vision, scope, and MVPs',
+                "Roadmapping & feature prioritization",
+                "User research & problem discovery",
+                "Lean experimentation & iteration",
+                "Define vision, scope, and MVPs",
               ]}
               icon={<Target />}
             />
@@ -156,7 +174,12 @@ export default function About() {
               onToggle={toggleAccordion}
               title="Engineering"
               summary="From wireframe to working product."
-              bullets={['Tech Building', 'Scalable component systems', 'API integration & performance', 'SEO, analytics, deployment']}
+              bullets={[
+                "Tech Building",
+                "Scalable component systems",
+                "API integration & performance",
+                "SEO, analytics, deployment",
+              ]}
               icon={<Cog />}
             />
 
@@ -166,9 +189,62 @@ export default function About() {
               onToggle={toggleAccordion}
               title="UX Strategies"
               summary="Craft experiences users love."
-              bullets={['Information architecture & flows', 'Wireframes & low-fi prototyping', 'Conversion-focused layout & CTAs', 'Accessibility & responsive design']}
+              bullets={[
+                "Information architecture & flows",
+                "Wireframes & low-fi prototyping",
+                "Conversion-focused layout & CTAs",
+                "Accessibility & responsive design",
+              ]}
               icon={<Lightbulb />}
             />
+          </div>
+        </div>
+      </section>
+      <section className="max-w-screen-xl mx-auto px-4 md:px-0 my-10 md:my-20">
+        <div className="text-black dark:text-white">
+          <h1 className="heading flex justify-start text-3xl md:text-4xl mb-4 font-semibold">
+            How I Work
+          </h1>
+          <div className="space-y-6 md:space-y-0 md:flex md:items-center md:gap-8 lg:gap-12">
+            <div>
+              <p className="mt-6 text-sm md:text-md text-center text-gray-700 dark:text-gray-200 font-normal leading-relaxed">
+                For me, every great product starts with curiosity not a big
+                idea, but a simple question. Questions like, “Why does this
+                problem even exist?” or “What’s the easiest way to make this
+                better for someone?” Those moments of wondering usually lead to
+                the most meaningful things I’ve built. <br /> Over the years,
+                I’ve realized that product management isn’t about having all the
+                answers it’s about creating the right loops that help a team
+                keep learning and moving forward. A good PM doesn’t try to be
+                the smartest person in the room; they make it easier for
+                everyone else to be smart together. That means asking the right
+                questions, framing problems clearly, and keeping the team
+                focused on outcomes instead of outputs. For me, being a
+                PM is a mix of curiosity and clarity. I love getting lost in
+                users’ worlds asking questions, noticing the little
+                frustrations they’ve learned to ignore, and trying to understand
+                what actually matters to them. Once I see the problem clearly, I
+                enjoy the messy process of shaping something real out of it
+                running small experiments, testing assumptions, and watching
+                ideas evolve into something people actually use. I’ve learned
+                that it’s less about getting everything right from the start and
+                more about staying open, adjusting quickly, and keeping that
+                sense of curiosity alive even when deadlines are close. <br />
+                In startups, this mindset becomes even more important. Things
+                move fast, priorities shift, and information is imperfect. My
+                approach is to create a rhythm of learning launch early,
+                measure honestly, reflect often. Every iteration, even the ones
+                that don’t work out, is a step toward building something that
+                truly resonates. I see my role as the person who keeps that
+                rhythm going: aligning the vision, guiding decisions, and making
+                sure the “why” stays clear no matter how chaotic things get.
+                <br /> I love that part of connecting vision to execution, turning
+                uncertainty into progress. The best moments are when everything
+                clicks: the team’s energy, the user’s need, and the product’s
+                promise. That’s when you know you’re building something that
+                truly matters.
+              </p>
+            </div>
           </div>
         </div>
       </section>
